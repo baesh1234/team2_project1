@@ -21,6 +21,10 @@ ul, li{margin:0;padding:0;list-style:none}
 .quick .on {background:#fff;}
 
 /*Section2 CSS*/
+.Compensationlogo {
+   display: flex;
+   justify-content: center;
+}
 .Compensation1 {
    position: absolute;
    top: 0px;

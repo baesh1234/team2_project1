@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>part5 공유</title>
+
+    <style>
+        body{
+            background-image: url(images/bkimg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        header{
+            display: flex;
+            justify-content: center;
+            line-height: 20px;
+
+            text-shadow: -1px 0px aqua, 0px 1px aqua, 1px 0px aqua, 0px -1px aqua;
+            font-size: 200%;
+            font-weight: 300;
+        }   
+        .top{
+            margin:0 auto;
+            
+            font-family: Arial, Helvetica, sans-serif;
+            color: blue;
+        }
+        
+
+
+        .explain{     
+            
+            display: flex;
+            justify-content: center;
+        }
+        .explain>div{
+            width: 1200px; height: 800px;
+            
+        }
+
+        .board{
+            background-image: url(images/board2.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            
+            padding-left: 80px;
+
+            /* text-shadow: -1px 0px aqua, 0px 1px aqua, 1px 0px aqua, 0px -1px aqua; */
+            font-size: 30px;
+            font-weight: 600;
+            color: azure;
+        }
+
+        .social{
+            margin: 20px;
+            text-align: center;
+            display: block;
+            text-shadow: -1px 0px yellow, 0px 1px yellow, 1px 0px yellow, 0px -1px yellow;
+            font-weight: 400;
+            font-size: 15px;
+            color: blue;
+            
+        }
+        .social>div{
+            margin-left: 20px;
+            display: inline-block;
+            width: 100px; height: 120px;
+            
+            
+        }
+
+        .present{
+            
+            text-align: center;
+            
+        }
+        .present>div{
+            background-color: rgb(0,255,255, 0.5);
+            
+            
+            display: inline-block;
+            width: 350px; height: 350px;
+        }
+        .gift1{
+            background-image: url(images/gift.com.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            text-shadow: -1px 0px yellow, 0px 1px yellow, 1px 0px yellow, 0px -1px yellow;
+            font-weight: 400;
+            font-size: 30px;
+            color: blue;
+        }
+        .gift2{
+            background-image: url(images/gift.com.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            text-shadow: -1px 0px yellow, 0px 1px yellow, 1px 0px yellow, 0px -1px yellow;
+            font-weight: 400;
+            font-size: 30px;
+            color: blue;
+        }
+        .gift3{
+            background-image: url(images/gift.com.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            text-shadow: -1px 0px yellow, 0px 1px yellow, 1px 0px yellow, 0px -1px yellow;
+            font-weight: 400;
+            font-size: 30px;
+            color: blue;
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+    <header>
+        <div class="top">
+            <h1>SNS 공유 이벤트</h1>
+            <h3>블루 아카이브 소식을 공유하고 선물도 받자!</h3>
+        </div>
+        
+
+    </header>
+    
+    <div class="explain">
+        <div class="board">
+            <br><br><br>
+            100주년 맞이 SNS 공유 이벤트를 개최합니다!<br><br>
+            1.아래 3가지 SNS를 들어가서 100주년 이벤트를 공유해주세요!<br><br>
+            2.공유 게시글에 응원 메세지와 유저 id를 남겨주세요!<br><br>
+            3.이벤트 기간동안에 공유해주신 유저분들을 대상으로 푸짐한 <br>보상을 드립니다!
+        </div>
+        
+
+    </div>
+
+    <div class="social">
+        <div class="imoticon1"><img src="images/물루.gif" alt="" width="120px" height="120px"></div>
+        <div class="sns1" ><img src="images/instagram.png" alt="" width="100px" height="100px" no-repeat>instagram<br>&nbsp;</div>
+        <div class="sns2" ><img src="images/xlogo.png" alt="" width="100px" height="100px" no-repeat>x<br>(前 트위터)</div>
+        <div class="sns3" ><img src="images/blueachive.png" alt="" width="100px" height="100px" no-repeat>블루아카이브<br> 커뮤니티</div>
+        <div class="imoticon2"><img src="images/아루.gif" alt="" width="120px" height="120px"></div>
+    </div>
+
+
+
+
+    <div class="present">
+        <div class="gift1">
+            <img src="images/starbuks.jpeg" alt="" width="170px" height="170px"><br>스타벅스 기프티콘<br>100명
+        </div>
+
+        <div class="gift2">
+            <img src="images/figure.webp" alt="" width="170px" height="170px"><br>아로나 피규어<br>1명
+        </div>
+
+        <div class="gift3">
+            <img src="images/giftcard.jpg" alt="" width="170px" height="170px"><br>구글기프트카드 10만원<br>10명
+        </div>
+    </div>
+
+
+
+</body>
+
+<script>
+    var button1 = document.querySelector('.sns1');
+    button1.addEventListener("click", function(){
+        window.open('https://www.instagram.com/')
+    })
+
+    var button2 = document.querySelector('.sns2');
+    button2.addEventListener("click", function(){
+        window.open('https://twitter.com/?lang=ko')
+    })
+    var button3 = document.querySelector('.sns3');
+    button3.addEventListener("click", function(){
+        window.open('https://forum.nexon.com/bluearchive/')
+    })
+
+
+</script>
+
+</html>

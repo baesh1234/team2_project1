@@ -3,6 +3,7 @@ package com.team2_project1.project1.domain;
 import jakarta.persistence.*;
 public class Reservations {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String Android_num;
     private String ios_num;

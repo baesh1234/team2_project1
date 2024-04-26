@@ -4,9 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class WebController {
 
+public class WebController {
     @RequestMapping("/")
-    public String home(){ return "index"; }
+    public String home(){ return "index";
+    }
+    // HelloWorld 페이지 (helloworld.html)
+    @RequestMapping("/hello")
+    public String helloWorld() {
+        return "helloworld";
+    }
 
 }
+

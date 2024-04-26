@@ -31,5 +31,5 @@ public class Reservations {
     public void setIos_num(String ios_num) {
         this.ios_num = ios_num;
     }
-
 }
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>내용</th>
+            <th>전화번호</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="comment_content : ${comment_content}">
+            <td th:text="${comment_content.comment_content}">comment_content</td>
+            <td th:text="${comment_content.phone_num}">phone_num</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+    $('#commentForm').submit(function(e) {
+    e.preventDefault(); // 폼의 기본 제출 방지
+    var phone = $('#phoneInput').val();
+    var content = $('#contentInput').val();
+
+    $.ajax({
+    url: '/saveComment', // 서버의 댓글 저장 API 경로
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify({ phone: phone, content: content }),
+    success: function(response) {
+    alert('댓글이 저장되었습니다.');
+    // 성공적으로 댓글을 저장 후 폼을 초기화하거나 페이지를 업데이트
+    },
+    error: function(xhr, status, error) {
+    alert('댓글 저장에 실패했습니다: ' + error);
+    }
+    });
+    });
+    });
+
+
+</script>
+</html>

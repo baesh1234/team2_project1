@@ -1,0 +1,64 @@
+
+
+
+.navbar-and-event {
+    display: flex;
+    align-items: center; /* 수직 가운데 정렬 */
+  }
+  
+  head{
+    position: relative;
+    margin-top: 0;
+  }
+  
+  .event-description {
+    position: relative;
+    left: 350px;
+    bottom: -100px;
+    /*margin-left: 10cm; /* 네비게이션 바 옆으로 1cm 띄우기 */
+  }
+  
+  .event-description img {
+    position: absolute;
+    max-width: 150%; /* 이미지가 요소의 너비를 벗어나지 않도록 설정 */
+  }
+
+  #letterPopup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1500px;
+    height: 850px;
+    background: url(../images/20.png) no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    box-sizing: border-box;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    z-index: 1000;
+    position: relative; /* 팝업 내 위치 지정을 위해 relative 설정 */
+}
+#closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none; /* 배경 없음 */
+    border: none; /* 테두리 없음 */
+    cursor: pointer;
+    font-size: 24px;
+    color: white; /* X의 색상 설정 */
+}
+#openLetterImg {
+  position: absolute;
+  left: 500px;
+  top: 250px;
+    cursor: pointer;
+    width: 500px; /* 이미지 크기 조정 필요 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 효과를 위한 전환 */
+}
+#openLetterImg:hover {
+    transform: scale(1.05); /* 이미지를 조금 확대 */
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.75); /* 빛나는 효과 */
+}

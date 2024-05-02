@@ -1,0 +1,201 @@
+
+ul,li{
+    list-style: none;
+}
+
+
+.commit{
+    position: absolute;
+    top: -20px;
+    display:flex;
+    left: 30cm;
+    padding: 30px;
+    width: 600px;
+    flex-wrap: nowrap;
+  }
+
+.commit > li {
+    margin-top: 120px;
+   right: 100px;
+}
+
+.commit > li:nth-child(1){
+    margin: 0px;
+    right: 100px;
+}
+
+.commit-row {
+    right: 100px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.commit-row {
+margin-top: 20px;
+width: 100%;
+}
+  
+.commit-row > li:nth-child(2){
+    flex-shrink: 0;
+    flex-grow: 1;
+    padding-left: 25px;
+    z-index: 1;
+    width: 100%;
+}
+
+.commit_num1 > form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.commit_num1 > form > h2 {
+    position: absolute;
+    left: 5px;
+    width: 100%;
+    margin: 14px 0 14px 0;
+}
+
+.commit-content {
+    cursor: pointer;
+    word-break: break-all;
+    padding-right: 25px;
+}
+
+.ps_box > input {
+    outline: none;
+}
+
+.int {
+    display: block;
+    position: absolute;
+    top: 130px;
+    right: -142px;
+    width: 275%;
+    height: 50px;
+    padding-right: 25px;
+    line-height: 29px;
+    border: none;
+    background: #fff;
+    font-size: 30px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.btn {
+    position: absolute;
+    left: 585px;
+    top: 115px;
+    width: 18%;
+    padding: 18px 0 16px;
+    text-align: center;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    background: #333;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#commit_list{
+    position: absolute;
+    top: 50px;
+    background-color: white;
+    border: 1px solid black;
+    position: absolute;
+    right: 376px;
+}
+
+.int2 {
+    position: relative;
+    right: 90px;
+    bottom: -5px;
+    width: 100%;
+    height: 30px;
+    font-size: 15px;
+}
+
+.comment-board {
+    position: absolute;
+    top: 50px;
+    left: 21px;
+    width: 660px; /* 원하는 너비로 조정하세요 */
+    height: 720px;
+    max-height: 720px; /* 댓글 목록이 너무 길어지지 않도록 최대 높이 지정 */
+    overflow-y: auto; /* 댓글 목록이 너무 길어질 때 스크롤바 표시 */
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.comment {
+    margin-bottom: 10px; /* 각 댓글 사이의 간격 조정 */
+}
+
+.comment .user {
+    font-weight: bold; /* 댓글 작성자 이름을 굵게 표시 */
+}
+
+.comment .content {
+    margin-left: 10px; /* 댓글 내용을 작성자 이름과 구분하기 위해 여백 추가 */
+}
+
+.phone-input-container {
+    display: flex;
+    align-items: center;
+}
+
+.phone-input {
+    flex: 1; /* 입력란이 남은 공간을 차지하도록 함 */
+    margin-right: 10px; /* 입력란과 버튼 사이의 간격 조정 */
+}
+
+.verification-request-button {
+    position: absolute;
+    top: 52px;
+    right: -5px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.verification-container {
+    display: flex;
+    position: absolute;
+    right: 50px;
+    bottom: -50px;   
+    align-items: center;
+    gap: 10px;
+    height: 50px;
+}
+
+.verificationCode {
+    position: absolute;
+    width: 200px;
+    right: 32px;
+    flex-grow: 1;
+    height: 30px;
+    font-size: 15px;
+    
+}
+
+.verify-button {
+    position: relative;
+    left: 90px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display:block;
+    justify-content: center;
+    text-align:center;
+}

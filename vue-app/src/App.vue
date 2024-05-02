@@ -5,14 +5,14 @@
       <div class="section full2">
         <img  src="./assets/images/section2Title.png" alt="titleImg" class="titleImg">
         <img src="./assets/images/section2Subbg.png" alt="초대장" class="subBg">
-        <form action="emailReg" method="POST" id="section2Form">
-          <input type="text" placeholder="이메일을 입력해주세요." name="email" required>
-          <button type="submit" class="btn">인증</button>
+        <form action="emailReg" method="POST" id="section2Form" class="row g-3">
+          <input class="form-control col-auto" type="text" placeholder="이메일을 입력해주세요." name="email" required>
+          <button type="submit" class="btn btn-primary col-auto">인증</button>
         </form>
-
       </div>
       <div class="section">Section 3</div>
       <div class="section">Section 4</div>
+      <div class="section">Section 5</div>
     </div>
   </div>
 
@@ -33,12 +33,16 @@
 </script>
 
 <style>
-  .section {
+  /*All*/
+  .section { /*배경화면*/
     background-image: url('assets/images/bgImg.jpg');
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+  .form-control {
+    margin-right: 1rem;
   }
 
   /*Section2*/
@@ -61,6 +65,8 @@
     left: 30rem;
     top: 20rem;
     z-index: 2;
+    flex-wrap: nowrap;
+    width : 50rem;
   }
 
 

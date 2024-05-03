@@ -1,8 +1,12 @@
 <template>
   <div class="position-relative">
     <div id="fullpage">
-      <div id="full1" class="section">Section 1</div>
-      <div class="section full2">
+      <div class="section s1">
+        <audio data-autoplay>
+          <source src="https://epsilon.vgmsite.com/soundtracks/blue-archive-gamerip/pgcasqoumy/07%20Mitsukiyo%2005%20Unwelcome%20School.mp3" type="audio/ogg">
+        </audio>
+      </div>
+      <div class="section s2">
         <img  src="./assets/images/section2Title.png" alt="titleImg" class="titleImg">
         <img src="./assets/images/section2Subbg.png" alt="초대장" class="subBg">
         <div  id="section2Form" class="row g-3">
@@ -53,6 +57,7 @@
         anchors: ['section1','section2', 'section3', 'section4', 'section5']
       });
     },
+
     methods: {
       /***Section2 function***/
       s2selectAllCheckbox(event) {
@@ -140,7 +145,63 @@
             timer: 1500, // 1.5초 후에 자동으로 닫힙니다.
           });
         }
-      }
+      },
+
+      /***Section4 function***/
+      // toggleLetter() {
+      //   this.showLetter = !this.showLetter;
+      // },
+      // onRequestVerification() {
+      //   if (this.userPhone.trim() === "") {
+      //     alert("핸드폰 번호를 입력해주세요.");
+      //   } else {
+      //     this.verificationCode = this.generateVerificationCode();
+      //     console.log("Generated Verification Code: " + this.verificationCode); // 콘솔에 인증번호 로깅
+      //     alert("인증번호가 전송되었습니다. 개발자 도구의 콘솔을 확인하세요.");
+      //   }
+      // },
+      // onVerify() {
+      //   if (this.userVerificationCode.trim() === "") {
+      //     alert("인증번호를 입력해주세요.");
+      //   } else if (this.userVerificationCode === this.verificationCode) {
+      //     alert("인증 성공!");
+      //     this.isVerified = true;
+      //   } else {
+      //     alert("인증번호가 일치하지 않습니다. 다시 시도해주세요.");
+      //   }
+      //   this.userVerificationCode = "";
+      // },
+      // onSubmitComment() {
+      //   if (!this.isVerified) {
+      //     alert("먼저 핸드폰 인증을 완료해주세요.");
+      //     return;
+      //   }
+      //   if (this.userPhone.trim() === "") {
+      //     alert("핸드폰 번호를 입력해주세요.");
+      //     return;
+      //   }
+      //   if (this.userComment.trim() === "") {
+      //     alert("한줄평을 입력해주세요.");
+      //     return;
+      //   }
+      //   const currentDate = new Date().toLocaleString();
+      //   this.comments.push({
+      //     id: this.commentId++,
+      //     phone: this.maskPhoneNumber(this.userPhone),
+      //     comment: this.userComment,
+      //     date: currentDate
+      //   });
+      //   this.userComment = "";
+      //   this.userPhone = "";
+      // },
+      // generateVerificationCode() {
+      //   return Math.floor(100000 + Math.random() * 900000).toString(); // 6자리 랜덤 숫자 생성
+      // },
+      // maskPhoneNumber(phoneNumber) {
+      //   const cleaned = phoneNumber.replace(/\D/g, ''); // 숫자만 추출
+      //   const matched = cleaned.match(/^(\d{3})(\d{4})(\d{4})$/);
+      //   return matched ? `${matched[1]}-XXXX-${matched[3]}` : phoneNumber;
+      // }
     }
   }
 </script>
@@ -201,6 +262,8 @@
     top: 366px;
     color : #007bff;
   }
+
+  /*Section4*/
 
 
   /*fullpage nav 재정의*/

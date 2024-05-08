@@ -10,8 +10,8 @@
 
               <!-- <p>블루 아카이브 100주년 기념 특설페이지</p> -->
             </div>
-            <audio autoplay controls loop onloadstart="this.volume=0.5" class="section1_bgm">
-              <source src="./assets/audio/ブルーアーカイブ Blue Archive OST 7. Unwelcome School.mp4" type="audio/mp3">
+            <audio data-autoplay data-keepplaying controls loop onloadstart="this.volume=0.5" class="section1_bgm">
+              <source src="https://epsilon.vgmsite.com/soundtracks/blue-archive-gamerip/pgcasqoumy/07%20Mitsukiyo%2005%20Unwelcome%20School.mp3" type="audio/mp3">
             </audio>
 
           </div>

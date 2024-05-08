@@ -93,7 +93,7 @@
           </div>
           <div id="text5">5단계 50만명
             <div class="s3arurelation">
-              <img src="./assets/images/section3arurelation.png" width="180" height="150">
+              <img src="./assets/images/section3arurelation.png" width="180" height="150" alt="">
               <div id="text05">★3아루x1</div>
             </div>
           </div>
@@ -118,6 +118,18 @@
         </div>
         <div class="s3logo">
           <img src="./assets/images/section3logo.png">
+        </div>
+        <div id="s3app">
+          <!-- 숫자 입력 필드 -->
+          <input v-model.number="number" type="number" placeholder="숫자를 입력하세요" class="s3input">
+          <!-- 입력 버튼 -->
+          <button @click="submitNumber" class="s3button">예약</button>
+          <!-- 출력된 숫자 합계를 보여주는 곳 -->
+          <div class="s3reservations"> 사전예약 인원 {{ total }} 명!</div>
+          <!-- 조건에 맞을 때 이미지를 보여주는 곳 -->
+          <div id="imageContainer">
+            <img v-for="(milestone, index) in milestonesReached" :key="index" :src="milestoneImageUrl" class="milestoneImage" :id="'milestone' + (index + 1)" :style="milestone.style" alt="">
+          </div>
         </div>
       </div>
       <div class="section s4">
@@ -232,7 +244,15 @@
         anchors: ['section1','section2', 'section3', 'section4', 'section5'],
       });
     },
-
+    data() {
+      return {
+        number: 0,
+        total: 0,
+        milestones: [100000, 200000, 300000, 400000, 500000, 600000],
+        milestonesReached: [],
+        milestoneImageUrl: require('@/assets/images/section3Stamp.png')
+      };
+    },
     methods: {
       /***Section2 function***/
       s2selectAllCheckbox(event) {
@@ -321,6 +341,35 @@
             timer: 1500, // 1.5초 후에 자동으로 닫힙니다.
           });
         }
+      },
+
+      /***Section3 function***/
+      submitNumber: function() {
+        this.total += this.number;
+        this.checkMilestones();
+        this.number = 0;
+      },
+      checkMilestones: function() {
+        this.milestonesReached = []; // 기존 이미지 초기화
+        this.milestones.forEach((milestone, index) => {
+          if (this.total >= milestone) {
+            this.milestonesReached.push({
+              index: index,
+              style: this.getMilestoneStyle(index + 1)
+            });
+          }
+        });
+      },
+      getMilestoneStyle: function(index) {
+        const positions = [
+          {top: '330px', left: '-640px'},
+          {top: '330px', left: '-410px'},
+          {top: '330px', left: '-180px'},
+          {top: '600px', left: '-640px'},
+          {top: '600px', left: '-410px'},
+          {top: '600px', left: '-180px'}
+        ];
+        return positions[index - 1];
       },
 
       /***Section4 function***/
@@ -634,6 +683,43 @@
     position: absolute; /* 이미지 위치 고정 */
     top: -20px;
     left: 500px;
+  }
+  #s3app {
+    position: absolute; /* 이미지 위치 고정 */
+    top: 10px;
+    left: 1250px;
+  }
+
+  .milestoneImage {
+    position: absolute;
+    z-index: 999; /* 이미지를 화면 맨 앞으로 가져옵니다. */
+    width: 250px;
+    height: 250px;
+  }
+  .s3reservations {
+    font-family: 'Ownglyph_meetme-Rg'; /* 글씨 폰트 Section3만 적용*/
+    font-size: 20px;
+    font-weight: 300px;
+    color: black;
+  }
+  .s3input{
+    font-family: 'Ownglyph_meetme-Rg'; /* 글씨 폰트 Section3만 적용*/
+    font-size: 20px;
+    font-weight: 300px;
+    color: #FFFFFF;
+    background-color: #00D6FA;
+    border:1px solid #FFFFFF;
+    border-radius: 10px;
+
+  }
+  .s3button{
+    font-family: 'Ownglyph_meetme-Rg'; /* 글씨 폰트 Section3만 적용*/
+    font-size: 20px;
+    font-weight: 300px;
+    color: #FFFFFF;
+    background-color: #00D6FA;
+    border:1px solid #FFFFFF;
+    border-radius: 10px;
   }
 
   /*Section4*/

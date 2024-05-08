@@ -1,10 +1,32 @@
 <template>
   <div class="position-relative">
     <div id="fullpage">
-      <div class="section s1 active">
-        <audio data-autoplay>
-          <source src="https://epsilon.vgmsite.com/soundtracks/blue-archive-gamerip/pgcasqoumy/07%20Mitsukiyo%2005%20Unwelcome%20School.mp3" type="audio/ogg">
-        </audio>
+      <div class="section s1" pageNum="1">
+        <div class="section1">
+          <div class="section1_header">
+            <div class="section1_logo"></div>
+
+            <div class="section1_headline">
+
+              <!-- <p>블루 아카이브 100주년 기념 특설페이지</p> -->
+            </div>
+            <audio autoplay controls loop onloadstart="this.volume=0.5" class="section1_bgm">
+              <source src="./assets/audio/ブルーアーカイブ Blue Archive OST 7. Unwelcome School.mp4" type="audio/mp3">
+            </audio>
+
+          </div>
+          <div class="section1_space">
+
+          </div>
+
+
+          <div class="section1_PV">
+            <iframe width="1080" height="540" src="https://www.youtube.com/embed/gMZ1BWFLDMw?si=zQNFoc5wwx7jMcVG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+
+
+
       </div>
       <div class="section s2">
         <img  src="./assets/images/section2Title.png" alt="titleImg" class="titleImg">
@@ -37,7 +59,67 @@
         </div>
         <a @click='s2AlertBtn()'><img src="./assets/images/s2submitButton.png" alt="submitBtnImg" class="s2submitBtn"></a>
       </div>
-      <div class="section s3">Section 3</div>
+      <div class="section s3">
+        <div class="s3board">
+          <img src="./assets/images/section3board.png" alt="게시판"  width="1100px">
+        </div>
+        <div class="s3notepad">
+          <img src="./assets/images/section3notepad.png" alt="메모장" width="700px">
+        </div>
+        <div class="s3text">
+          <div id="text1">1단계 10만명
+            <div class="s3blue10">
+              <img src="./assets/images/section3blue10.png">
+              <div id="text01">청휘석x100000</div>
+            </div>
+          </div>
+          <div id="text2">2단계 20만명
+            <div class="s3blue20">
+              <img src="./assets/images/section3blue20.png">
+              <div id="text02">청휘석x200000</div>
+            </div>
+          </div>
+          <div id="text3">3단계 30만명
+            <div class="s3blue30">
+              <img src="./assets/images/section3blue30.png">
+              <div id="text03">청휘석x300000</div>
+            </div>
+          </div>
+          <div id="text4">4단계 40만명
+            <div class="s3blue40">
+              <img src="./assets/images/section3blue40.png">
+              <div id="text04">청휘석x400000</div>
+            </div>
+          </div>
+          <div id="text5">5단계 50만명
+            <div class="s3arurelation">
+              <img src="./assets/images/section3arurelation.png" width="180" height="150">
+              <div id="text05">★3아루x1</div>
+            </div>
+          </div>
+          <div id="text6">6단계 60만명
+            <div class="s3Kayokorelation">
+              <img src="./assets/images/section3Kayokorelation.webp" width="180" height="150">
+              <div id="text06">★3카요코x1</div>
+            </div>
+          </div>
+        </div>
+        <div class="s3Kayoko">
+          <img src="./assets/images/section3Kayoko.png" alt="카요코" width="600px">
+        </div>
+        <div class="s3Aru">
+          <img src="./assets/images/section3Aru.png" alt="아루" width="300px">
+        </div>
+        <div class="s3realtime">
+          <img src="./assets/images/section3realtime.png" alt="실시간 출력 캐릭터" width="380px">
+        </div>
+        <div class="s3bubble">
+          <img src="./assets/images/section3bubble.png" width="400px">
+        </div>
+        <div class="s3logo">
+          <img src="./assets/images/section3logo.png">
+        </div>
+      </div>
       <div class="section s4">
         <div id="s4_upImage">
           <img src="./assets/images/section4_arona3.png" alt="이벤트 확인" id="section4_up" width="600px">
@@ -72,7 +154,67 @@
           </ul>
         </div>
       </div>
-      <div class="section s5">Section 5</div>
+      <div class="section s5" pageNum="5">
+
+
+        <div class="section5_wrapper">
+          <div class="section5_arona"></div>
+          <div class="section5_plana"></div>
+
+          <div class="section5_header">
+            <div class="secstion5_top">
+              <h1>SNS 공유 이벤트</h1>
+              <h3>블루 아카이브 소식을 공유하고 선물도 받자!</h3>
+            </div>
+          </div>
+
+
+          <div class="secstion5_explain">
+            <div class="secstion5_board">
+              <br><br><br>
+              100주년 맞이 SNS 공유 이벤트를 개최합니다!<br><br>
+              1.아래 3가지 SNS를 들어가서 100주년 이벤트를 공유해주세요!<br><br>
+              2.공유 게시글에 응원 메세지와 유저 id를 남겨주세요!<br><br>
+              3.이벤트 기간동안에 공유해주신 유저분들을 대상으로 푸짐한 <br>보상을 드립니다!
+            </div>
+
+
+          </div>
+
+          <div class="secstion5_social">
+            <div class="secstion5_imoticon1"><img src="./assets/images/물루.gif" alt="" width="80px" height="80px"></div>
+            <div class="secstion5_sns1" ><img src="./assets/images/instagram.png" alt="" width="60px" height="60px" no-repeat>instagram<br>&nbsp;</div>
+            <div class="secstion5_sns2" ><img src="./assets/images/xlogo.png" alt="" width="60px" height="60px" no-repeat>x<br>(前 트위터)</div>
+            <div class="secstion5_sns3" ><img src="./assets/images/blueachive.png" alt="" width="60px" height="60px" no-repeat><br>블루아카<br> 커뮤니티</div>
+            <div class="secstion5_imoticon2"><img src="./assets/images/아루.gif" alt="" width="80px" height="80px"></div>
+
+
+          </div>
+
+
+
+
+          <div class="secstion5_present">
+            <div class="secstion5_gift1">
+              <img src="./assets/images/starbuks.jpeg" alt="" width="170px" height="170px"><br>스타벅스 기프티콘<br>100명
+            </div>
+
+            <div class="secstion5_gift2">
+              <img src="./assets/images/figure.webp" alt="" width="170px" height="170px"><br>아로나 피규어<br>1명
+            </div>
+
+            <div class="secstion5_gift3">
+              <img src="./assets/images/giftcard.jpg" alt="" width="170px" height="170px"><br>구글기프트카드 10만원<br>10명
+            </div>
+          </div>
+
+          <div class="section5_back">
+
+          </div>
+
+        </div>
+
+      </div>
     </div>
   </div>
 
@@ -258,6 +400,48 @@
     margin-right: 1rem;
   }
 
+  /*Section１*/
+  .section1{
+    text-align: center;
+  }
+
+  .section1_header{
+    position: relative;
+  }
+
+  .section1_logo{
+    position: absolute;
+    width: 320px;
+    height: 110px;
+    background-image: url('assets/images/blueachalogo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    left: 0; top: 0; margin: 0 auto;
+  }
+
+
+  .section1_headline{
+    width: 841px; height: 474px;
+    background-image: url('assets/images/blueachive2.png');
+    position: absolute;
+    right: 0; left: 0%; margin: 0 auto;
+  }
+
+  .section1_bgm{
+    position: absolute;
+    right: 0; top: 0; margin: 0 auto;
+  }
+
+  .section1_space{
+    width: 1280px; height: 400px;
+  }
+
+  .section1_pv{
+
+
+    right: 0; left: 0%; top: 0; bottom: 0; margin: 0 auto;
+
+  }
   /*Section2*/
   .titleImg {
     position: absolute;
@@ -300,6 +484,156 @@
     left: 480px;
     top: 366px;
     color : #007bff;
+  }
+
+  /*Section3*/
+  @font-face {
+    font-family: 'Ownglyph_meetme-Rg'; /* 글씨 폰트 */
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  .s3board {
+    position: absolute; /* 이미지 위치 고정 */
+    top:150px;
+    left:400px;
+    transform: rotate(4deg); /* 이미지 회전 (원 이미지가 약간 기울어진 게시판) */
+  }
+  .s3notepad {
+    position: absolute; /* 이미지 위치 고정 */
+    top: 300px;
+    left: 600px;
+  }
+  .s3text{
+    font-family: 'Ownglyph_meetme-Rg'; /* 글씨 폰트 Section3만 적용*/
+    font-size: 35px;
+    font-weight: 300px;
+    color: black
+  }
+  #text1 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:360px;
+    left:665px;
+  }
+  .s3blue10 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:15px;
+    left:-55px;
+  }
+  #text01 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:170px;
+    left:40px;
+  }
+  #text2 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:360px;
+    left:880px;
+    color: rgb(211, 157, 11);
+  }
+  .s3blue20 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:15px;
+    left:-50px;
+  }
+  #text02 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:170px;
+    left:40px;
+    color: rgb(211, 157, 11);
+  }
+  #text3 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:350px;
+    left:1105px;
+    color: rgb(154, 238, 179);
+  }
+  .s3blue30 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:25px;
+    left:-50px;
+  }
+  #text03 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:170px;
+    left:40px;
+    color: rgb(154, 238, 179);
+  }
+  #text4 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:620px;
+    left:665px;
+    color: rgb(98, 110, 219);
+  }
+  .s3blue40 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:10px;
+    left:-70px;
+  }
+  #text04 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:180px;
+    left:35px;
+    color: rgb(98, 110, 219);
+  }
+  #text5 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:620px;
+    left:880px;
+    color: rgb(216, 109, 109);
+  }
+  .s3arurelation {
+    position: absolute; /* 이미지 위치 고정 */
+    top:45px;
+    left:-15px;
+  }
+  #text05 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:150px;
+    left:35px;
+    color: rgb(216, 109, 109);
+  }
+  #text6 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:620px;
+    left:1120px;
+    color: rgba(66, 66, 66, 0.719);
+  }
+  .s3Kayokorelation {
+    position: absolute; /* 이미지 위치 고정 */
+    top:45px;
+    left:-27px;
+  }
+  #text06 {
+    position: absolute; /* 이미지 위치 고정 */
+    top:150px;
+    left:32px;
+    color: rgba(66, 66, 66, 0.719);
+  }
+  .s3Kayoko {
+    position: absolute; /* 이미지 위치 고정 */
+    top: 65px;
+    left: 100px
+  }
+  .s3Aru {
+    position: absolute; /* 이미지 위치 고정 */
+    top: 70px;
+    left: 1300px;
+  }
+  .s3realtime {
+    position: absolute; /* 이미지 위치 고정 */
+    top: 45px;
+    left: 890px;
+  }
+  .s3bubble {
+    position: absolute; /* 이미지 위치 고정 */
+    top: -5px;
+    left: 1205px;
+  }
+  .s3logo {
+    position: absolute; /* 이미지 위치 고정 */
+    top: -20px;
+    left: 500px;
   }
 
   /*Section4*/
@@ -512,6 +846,148 @@
   /* section4 main css */
 
 
+  /*Section５*/
+
+  .section5_wrapper{
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .section5_header{
+
+    display: flex;
+    justify-content: center;
+    line-height: 20px;
+
+    text-shadow: -1px 0px aqua, 0px 1px aqua, 1px 0px aqua, 0px -1px aqua;
+    font-size: 150%;
+    font-weight: 300;
+  }
+  .secstion5_top{
+    margin:0 auto;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: blue;
+  }
+
+
+
+  .secstion5_explain{
+
+    display: flex;
+    justify-content: center;
+  }
+  .secstion5_explain>div{
+    width: 720px; height: 480px;
+
+  }
+
+  .secstion5_board{
+    background-image: url(assets/images/board2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    padding-left: 50px;
+
+    /* text-shadow: -1px 0px aqua, 0px 1px aqua, 1px 0px aqua, 0px -1px aqua; */
+    font-size: 20px;
+    font-weight: 600;
+    color: azure;
+  }
+
+  .secstion5_social{
+
+    margin: 10px;
+    text-align: center;
+    display: block;
+    text-shadow: -1px 0px yellow, 0px 1px yellow, 1px 0px yellow, 0px -1px yellow;
+    font-weight: 400;
+
+    color: blue;
+
+  }
+  .secstion5_social>div{
+    margin-left: 20px; margin-right: 20px;
+    display: inline-block;
+    width: 50px; height: 70px;
+
+
+  }
+  .secstion5_sns1{
+    font-size: 10px;
+  }
+
+  .secstion5_sns2{
+    font-size: 10px;
+  }
+
+  .secstion5_sns3{
+    font-size: 10px;
+  }
+
+  .secstion5_present{
+
+    text-align: center;
+
+  }
+  .secstion5_present>div{
+    background-color: rgb(0,255,255, 0.5);
+    margin-left: 10px; margin-right: 10px;
+
+    display: inline-block;
+    width: 150px; height: 150px;
+  }
+  .secstion5_gift1{
+    background-image: url(assets/images/gift.com.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    text-shadow: -1px 0px yellow, 0px 1px yellow, 1px 0px yellow, 0px -1px yellow;
+    font-weight: 400;
+    font-size: 15px;
+    color: blue;
+  }
+  .secstion5_gift2{
+    background-image: url(assets/images/gift.com.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    text-shadow: -1px 0px yellow, 0px 1px yellow, 1px 0px yellow, 0px -1px yellow;
+    font-weight: 400;
+    font-size: 15px;
+    color: blue;
+  }
+  .secstion5_gift3{
+    background-image: url(assets/images/gift.com.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    text-shadow: -1px 0px yellow, 0px 1px yellow, 1px 0px yellow, 0px -1px yellow;
+    font-weight: 400;
+    font-size: 14px;
+    color: blue;
+  }
+
+
+
+  .section5_arona{
+    width: 410px; height: 290px;
+    background-image: url("assets/images/아로나.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    left:0; bottom: 0;
+  }
+
+  .section5_plana{
+    width: 410px; height: 290px;
+    background-image: url("assets/images/프라나.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    right: 0; bottom: 0;
+  }
 
 
   .navbar-and-event {

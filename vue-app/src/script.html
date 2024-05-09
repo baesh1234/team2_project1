@@ -1,0 +1,165 @@
+<script>
+  export default {
+    mounted() {
+      new fullpage('#fullpage', {
+        sectionSelector: '.section',
+        scrollOverflow: true,
+        navigation: true,
+        scrollingSpeed: 1000,
+        anchors: ['section1','section2', 'section3', 'section4', 'section5'],
+      });
+    },
+
+    methods: {
+      /***Section2 function***/
+      s2selectAllCheckbox(event) {
+        const checkboxes = document.querySelectorAll('input[name="agree"]');
+        checkboxes.forEach((checkbox) => {
+          checkbox.checked = event.target.checked;
+        });
+      },
+      //모두 선택되었을때 개별체크박스가 해제되면 전체선택체크박스를 해제하는 함수
+      s2uncheckSelectAll() {
+        // 전체 선택 체크박스를 가져옵니다.
+        const selectAllCheckboxes = document.querySelectorAll('input[value="selectall"]');
+        // 모든 전체 선택 체크박스에 대해 반복합니다.
+        selectAllCheckboxes.forEach((selectAllCheckbox) => {
+          // 만약 전체 선택 체크박스가 선택되어 있다면 실행합니다.
+          if (selectAllCheckbox.checked) {
+            // 모든 개별 체크박스를 가져옵니다.
+            const checkboxes = document.querySelectorAll('input[name="agree"]');
+            let allChecked = true;
+            // 각 개별 체크박스를 확인하여 모두 선택되었는지 확인합니다.
+            checkboxes.forEach((checkbox) => {
+              if (!checkbox.checked) {
+                allChecked = false;
+              }
+            });
+            // 개별 체크박스 중 하나라도 선택되지 않은 경우 전체 선택 체크박스를 해제합니다.
+            if (!allChecked) {
+              selectAllCheckbox.checked = false;
+            }
+          }
+        });
+      },
+      //모든 개별 체크박스가 선택되었을 때 전체 선택 체크박스를 체크하는 함수
+      s2checkSelectAll() {
+        const selectAllCheckboxes = document.querySelectorAll('input[value="selectall"]');
+        selectAllCheckboxes.forEach((selectAllCheckbox) => {
+          // 만약 전체 선택 박스가 체크 해제되어 있다면 실행합니다.
+          if (!selectAllCheckbox.checked) {
+            // 모든 개별 체크박스를 가져옵니다.
+            const checkboxes = document.querySelectorAll('input[name="agree"]');
+            let allChecked = true;
+            // 모든 개별 체크박스에 대해 반복합니다.
+            checkboxes.forEach((checkbox) => {
+              // 만약 하나라도 체크되지 않은 상태라면 모든 체크박스가 선택되지 않은 것으로 표시합니다.
+              if (!checkbox.checked) {
+                allChecked = false;
+              }
+            });
+            // 모든 개별 체크박스가 선택되어 있다면 전체 선택 체크박스를 체크합니다.
+            if (allChecked) {
+              selectAllCheckbox.checked = true;
+            }
+          }
+        });
+      },
+      //이메일 인증 버튼
+      s2emailBtn(){
+        const emailMsg = document.querySelector('.s2emailMsg');
+        emailMsg.style.display = 'block';
+      },
+      //사전예약 등록 버튼 alert 출력
+      s2AlertBtn(){
+        const emailMsg = document.querySelector('.s2emailMsg');
+        const emailVerified = emailMsg.style.display === 'block';
+        const selectAllCheckbox = document.querySelector('input[value="selectall"]');
+        const allAgreed = selectAllCheckbox.checked;
+
+        if (emailVerified && allAgreed) {
+          // SweetAlert2로 'O' 알림을 출력하고, 확인 버튼을 누르면 다음 섹션으로 이동합니다.
+          Swal.fire({
+            icon: 'success',
+            title: '모든 조건이 충족되었습니다.',
+            showConfirmButton: true,
+          }).then(() => {
+            // alert의 확인버튼을 누를시 section3으로 이동
+            // section3으로 이동합니다.
+            fullpage_api.moveTo(4);
+            console.log('slide');
+          });
+        } else {
+          // SweetAlert2로 'X' 알림을 출력합니다.
+          Swal.fire({
+            icon: 'error',
+            title: '이메일 인증이 완료되었고 모든 항목에 동의해야 합니다.',
+            showConfirmButton: false,
+            timer: 1500, // 1.5초 후에 자동으로 닫힙니다.
+          });
+        }
+      },
+
+      /***Section4 function***/
+      toggleLetter() {
+        const letter = document.querySelector('#s4_letterPopup');
+        letter.style.display = 'block';
+      },
+      toggleLetterX() {
+        const letter = document.querySelector('#s4_letterPopup');
+        letter.style.display = 'none';
+      },
+      onRequestVerification() {
+        if (this.userPhone.trim() === "") {
+          alert("핸드폰 번호를 입력해주세요.");
+        } else {
+          this.verificationCode = this.generateVerificationCode();
+          console.log("Generated Verification Code: " + this.verificationCode); // 콘솔에 인증번호 로깅
+          alert("인증번호가 전송되었습니다. 개발자 도구의 콘솔을 확인하세요.");
+        }
+      },
+      onVerify() {
+        if (this.userVerificationCode.trim() === "") {
+          alert("인증번호를 입력해주세요.");
+        } else if (this.userVerificationCode === this.verificationCode) {
+          alert("인증 성공!");
+          this.isVerified = true;
+        } else {
+          alert("인증번호가 일치하지 않습니다. 다시 시도해주세요.");
+        }
+        this.userVerificationCode = "";
+      },
+      onSubmitComment() {
+        if (!this.isVerified) {
+          alert("먼저 핸드폰 인증을 완료해주세요.");
+          return;
+        }
+        if (this.userPhone.trim() === "") {
+          alert("핸드폰 번호를 입력해주세요.");
+          return;
+        }
+        if (this.userComment.trim() === "") {
+          alert("한줄평을 입력해주세요.");
+          return;
+        }
+        const currentDate = new Date().toLocaleString();
+        this.comments.push({
+          id: this.commentId++,
+          phone: this.maskPhoneNumber(this.userPhone),
+          comment: this.userComment,
+          date: currentDate
+        });
+        this.userComment = "";
+        this.userPhone = "";
+      },
+      generateVerificationCode() {
+        return Math.floor(100000 + Math.random() * 900000).toString(); // 6자리 랜덤 숫자 생성
+      },
+      maskPhoneNumber(phoneNumber) {
+        const cleaned = phoneNumber.replace(/\D/g, ''); // 숫자만 추출
+        const matched = cleaned.match(/^(\d{3})(\d{4})(\d{4})$/);
+        return matched ? `${matched[1]}-XXXX-${matched[3]}` : phoneNumber;
+      }
+    }
+  }
+</script>

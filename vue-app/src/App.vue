@@ -233,324 +233,324 @@
   import Swal from 'sweetalert2';
 
 
-  export default {
-    mounted() {
-      new fullpage('#fullpage', {
-        sectionSelector: '.section',
-        scrollOverflow: true,
-        navigation: true,
-        scrollingSpeed: 1000,
-        anchors: ['section1','section2', 'section3', 'section4', 'section5'],
-      });
-    },
-    data() {
-      return {
-        number: 0,
-        total: 0,
-        milestones: [100000, 200000, 300000, 400000, 500000, 600000],
-        milestonesReached: [],
-        milestoneImageUrl: require('@/assets/images/section3Stamp.png'),
-        userEmail: '',
-        userMessage: '',
-        emailVerified: false,
-        s4_usermemo: '',
-        // 이미지 선택기 표시 여부
-        showImageSelector: false,
-        // 선택된 이미지 파일명
-        selectedImage: null,
-        // 선택한 이미지 파일명
-        images: ["s4_arona_raund.png", "s4_mika.png", "s4_toki.png"],
-        // 응원 메시지 및 등록 날짜 및 시간
-        // 이전에는 하나의 응원 메시지만 표시했지만 이제는 여러 메시지를 저장할 배열을 만듭니다.
-        cheerMessages: [],
-        // 이전 코드에서는 선택된 이미지를 저장하는 selectedImage 변수를 사용했습니다.
-        // 이제는 이미지와 메시지를 함께 저장하는 객체를 사용합니다.
-        selectedCheerMessage: null,
-        // 다음 메시지를 위한 입력 필드를 초기화하는 플래그
-        clearInputField: false,
-        registrationDateTime: ''
-      };
+     export default {
+       mounted() {
+         new fullpage('#fullpage', {
+           sectionSelector: '.section',
+           scrollOverflow: true,
+           navigation: true,
+           scrollingSpeed: 1000,
+           anchors: ['section1','section2', 'section3', 'section4', 'section5'],
+         });
+       },
+       data() {
+         return {
+           number: 0,
+           total: 0,
+           milestones: [100000, 200000, 300000, 400000, 500000, 600000],
+           milestonesReached: [],
+           milestoneImageUrl: require('@/assets/images/section3Stamp.png'),
+           userEmail: '',
+           userMessage: '',
+           emailVerified: false,
+           s4_usermemo: '',
+           // 이미지 선택기 표시 여부
+           showImageSelector: false,
+           // 선택된 이미지 파일명
+           selectedImage: null,
+           // 선택한 이미지 파일명
+           images: ["s4_arona_raund.png", "s4_mika.png", "s4_toki.png"],
+           // 응원 메시지 및 등록 날짜 및 시간
+           // 이전에는 하나의 응원 메시지만 표시했지만 이제는 여러 메시지를 저장할 배열을 만듭니다.
+           cheerMessages: [],
+           // 이전 코드에서는 선택된 이미지를 저장하는 selectedImage 변수를 사용했습니다.
+           // 이제는 이미지와 메시지를 함께 저장하는 객체를 사용합니다.
+           selectedCheerMessage: null,
+           // 다음 메시지를 위한 입력 필드를 초기화하는 플래그
+           clearInputField: false,
+           registrationDateTime: ''
+         };
 
-    },
-    methods: {
-      /***Section2 function***/
-      s2selectAllCheckbox(event) {
-        const checkboxes = document.querySelectorAll('input[name="agree"]');
-        checkboxes.forEach((checkbox) => {
-          checkbox.checked = event.target.checked;
-        });
-      },
-      //모두 선택되었을때 개별체크박스가 해제되면 전체선택체크박스를 해제하는 함수
-      s2uncheckSelectAll() {
-        // 전체 선택 체크박스를 가져옵니다.
-        const selectAllCheckboxes = document.querySelectorAll('input[value="selectall"]');
-        // 모든 전체 선택 체크박스에 대해 반복합니다.
-        selectAllCheckboxes.forEach((selectAllCheckbox) => {
-          // 만약 전체 선택 체크박스가 선택되어 있다면 실행합니다.
-          if (selectAllCheckbox.checked) {
-            // 모든 개별 체크박스를 가져옵니다.
-            const checkboxes = document.querySelectorAll('input[name="agree"]');
-            let allChecked = true;
-            // 각 개별 체크박스를 확인하여 모두 선택되었는지 확인합니다.
-            checkboxes.forEach((checkbox) => {
-              if (!checkbox.checked) {
-                allChecked = false;
-              }
-            });
-            // 개별 체크박스 중 하나라도 선택되지 않은 경우 전체 선택 체크박스를 해제합니다.
-            if (!allChecked) {
-              selectAllCheckbox.checked = false;
-            }
-          }
-        });
-      },
-      //모든 개별 체크박스가 선택되었을 때 전체 선택 체크박스를 체크하는 함수
-      s2checkSelectAll() {
-        const selectAllCheckboxes = document.querySelectorAll('input[value="selectall"]');
-        selectAllCheckboxes.forEach((selectAllCheckbox) => {
-          // 만약 전체 선택 박스가 체크 해제되어 있다면 실행합니다.
-          if (!selectAllCheckbox.checked) {
-            // 모든 개별 체크박스를 가져옵니다.
-            const checkboxes = document.querySelectorAll('input[name="agree"]');
-            let allChecked = true;
-            // 모든 개별 체크박스에 대해 반복합니다.
-            checkboxes.forEach((checkbox) => {
-              // 만약 하나라도 체크되지 않은 상태라면 모든 체크박스가 선택되지 않은 것으로 표시합니다.
-              if (!checkbox.checked) {
-                allChecked = false;
-              }
-            });
-            // 모든 개별 체크박스가 선택되어 있다면 전체 선택 체크박스를 체크합니다.
-            if (allChecked) {
-              selectAllCheckbox.checked = true;
-            }
-          }
-        });
-      },
-      //이메일 인증 버튼
-      s2emailBtn(){
-        const emailMsg = document.querySelector('.s2emailMsg');
-        emailMsg.style.display = 'block';
-      },
-      //사전예약 등록 버튼 alert 출력
-      s2AlertBtn(){
-        const emailMsg = document.querySelector('.s2emailMsg');
-        const emailVerified = emailMsg.style.display === 'block';
-        const selectAllCheckbox = document.querySelector('input[value="selectall"]');
-        const allAgreed = selectAllCheckbox.checked;
+       },
+       methods: {
+         /***Section2 function***/
+         s2selectAllCheckbox(event) {
+           const checkboxes = document.querySelectorAll('input[name="agree"]');
+           checkboxes.forEach((checkbox) => {
+             checkbox.checked = event.target.checked;
+           });
+         },
+         //모두 선택되었을때 개별체크박스가 해제되면 전체선택체크박스를 해제하는 함수
+         s2uncheckSelectAll() {
+           // 전체 선택 체크박스를 가져옵니다.
+           const selectAllCheckboxes = document.querySelectorAll('input[value="selectall"]');
+           // 모든 전체 선택 체크박스에 대해 반복합니다.
+           selectAllCheckboxes.forEach((selectAllCheckbox) => {
+             // 만약 전체 선택 체크박스가 선택되어 있다면 실행합니다.
+             if (selectAllCheckbox.checked) {
+               // 모든 개별 체크박스를 가져옵니다.
+               const checkboxes = document.querySelectorAll('input[name="agree"]');
+               let allChecked = true;
+               // 각 개별 체크박스를 확인하여 모두 선택되었는지 확인합니다.
+               checkboxes.forEach((checkbox) => {
+                 if (!checkbox.checked) {
+                   allChecked = false;
+                 }
+               });
+               // 개별 체크박스 중 하나라도 선택되지 않은 경우 전체 선택 체크박스를 해제합니다.
+               if (!allChecked) {
+                 selectAllCheckbox.checked = false;
+               }
+             }
+           });
+         },
+         //모든 개별 체크박스가 선택되었을 때 전체 선택 체크박스를 체크하는 함수
+         s2checkSelectAll() {
+           const selectAllCheckboxes = document.querySelectorAll('input[value="selectall"]');
+           selectAllCheckboxes.forEach((selectAllCheckbox) => {
+             // 만약 전체 선택 박스가 체크 해제되어 있다면 실행합니다.
+             if (!selectAllCheckbox.checked) {
+               // 모든 개별 체크박스를 가져옵니다.
+               const checkboxes = document.querySelectorAll('input[name="agree"]');
+               let allChecked = true;
+               // 모든 개별 체크박스에 대해 반복합니다.
+               checkboxes.forEach((checkbox) => {
+                 // 만약 하나라도 체크되지 않은 상태라면 모든 체크박스가 선택되지 않은 것으로 표시합니다.
+                 if (!checkbox.checked) {
+                   allChecked = false;
+                 }
+               });
+               // 모든 개별 체크박스가 선택되어 있다면 전체 선택 체크박스를 체크합니다.
+               if (allChecked) {
+                 selectAllCheckbox.checked = true;
+               }
+             }
+           });
+         },
+         //이메일 인증 버튼
+         s2emailBtn(){
+           const emailMsg = document.querySelector('.s2emailMsg');
+           emailMsg.style.display = 'block';
+         },
+         //사전예약 등록 버튼 alert 출력
+         s2AlertBtn(){
+           const emailMsg = document.querySelector('.s2emailMsg');
+           const emailVerified = emailMsg.style.display === 'block';
+           const selectAllCheckbox = document.querySelector('input[value="selectall"]');
+           const allAgreed = selectAllCheckbox.checked;
 
-        if (emailVerified && allAgreed) {
-          // SweetAlert2로 'O' 알림을 출력하고, 확인 버튼을 누르면 다음 섹션으로 이동합니다.
-          Swal.fire({
-            icon: 'success',
-            title: '모든 조건이 충족되었습니다.',
-            showConfirmButton: true,
-          }).then(() => {
-            // alert의 확인버튼을 누를시 section3으로 이동
-            // section3으로 이동합니다.
-            fullpage_api.moveTo(4);
-            console.log('slide');
-          });
-        } else {
-          // SweetAlert2로 'X' 알림을 출력합니다.
-          Swal.fire({
-            icon: 'error',
-            title: '이메일 인증이 완료되었고 모든 항목에 동의해야 합니다.',
-            showConfirmButton: false,
-            timer: 1500, // 1.5초 후에 자동으로 닫힙니다.
-          });
-        }
-      },
+           if (emailVerified && allAgreed) {
+             // SweetAlert2로 'O' 알림을 출력하고, 확인 버튼을 누르면 다음 섹션으로 이동합니다.
+             Swal.fire({
+               icon: 'success',
+               title: '모든 조건이 충족되었습니다.',
+               showConfirmButton: true,
+             }).then(() => {
+               // alert의 확인버튼을 누를시 section3으로 이동
+               // section3으로 이동합니다.
+               fullpage_api.moveTo(4);
+               console.log('slide');
+             });
+           } else {
+             // SweetAlert2로 'X' 알림을 출력합니다.
+             Swal.fire({
+               icon: 'error',
+               title: '이메일 인증이 완료되었고 모든 항목에 동의해야 합니다.',
+               showConfirmButton: false,
+               timer: 1500, // 1.5초 후에 자동으로 닫힙니다.
+             });
+           }
+         },
 
-      /***Section3 function***/
-      submitNumber: function() {
-        this.total += this.number;
-        this.checkMilestones();
-        this.number = 0;
-      },
-      checkMilestones: function() {
-        this.milestonesReached = []; // 기존 이미지 초기화
-        this.milestones.forEach((milestone, index) => {
-          if (this.total >= milestone) {
-            this.milestonesReached.push({
-              index: index,
-              style: this.getMilestoneStyle(index + 1)
-            });
-          }
-        });
-      },
-      getMilestoneStyle: function(index) {
-        const positions = [
-          {top: '330px', left: '-640px'},
-          {top: '330px', left: '-410px'},
-          {top: '330px', left: '-180px'},
-          {top: '600px', left: '-640px'},
-          {top: '600px', left: '-410px'},
-          {top: '600px', left: '-180px'}
-        ];
-        return positions[index - 1];
-      },
+         /***Section3 function***/
+         submitNumber: function() {
+           this.total += this.number;
+           this.checkMilestones();
+           this.number = 0;
+         },
+         checkMilestones: function() {
+           this.milestonesReached = []; // 기존 이미지 초기화
+           this.milestones.forEach((milestone, index) => {
+             if (this.total >= milestone) {
+               this.milestonesReached.push({
+                 index: index,
+                 style: this.getMilestoneStyle(index + 1)
+               });
+             }
+           });
+         },
+         getMilestoneStyle: function(index) {
+           const positions = [
+             {top: '330px', left: '-640px'},
+             {top: '330px', left: '-410px'},
+             {top: '330px', left: '-180px'},
+             {top: '600px', left: '-640px'},
+             {top: '600px', left: '-410px'},
+             {top: '600px', left: '-180px'}
+           ];
+           return positions[index - 1];
+         },
 
-      /***Section4 function***/
-      async fetchImages() {
-        try {
-          const response = await fetch('/images/list');
-          const images = await response.json();
-          this.images = images;
-        } catch (error) {
-          console.error('이미지를 불러오는데 실패했습니다.', error);
-        }
-      },
-      // 한 줄평 등록 버튼 클릭 시
-      s4_btn() {
-        if (this.s4_usermemo) { // 응원 메시지가 정상적으로 입력되었는지 검사합니다.
-          this.submitMessage(); // 응원 메시지 등록 처리
-        } else {
-          // 응원 메시지가 입력되지 않은 경우 에러 메시지 출력
-          Swal.fire({
-            text: '한 줄평을 입력해주세요.',
-            icon: 'error',
-            timer: 2000
-          });
-        }
-      },
-      // 이메일 인증 버튼
-      s4_emailBtn() {
-        this.emailVerified = true;
-        this.showEmailMessage();
-      },
+         /***Section4 function***/
+         async fetchImages() {
+           try {
+             const response = await fetch('/images/list');
+             const images = await response.json();
+             this.images = images;
+           } catch (error) {
+             console.error('이미지를 불러오는데 실패했습니다.', error);
+           }
+         },
+         // 한 줄평 등록 버튼 클릭 시
+         s4_btn() {
+           if (this.s4_usermemo) { // 응원 메시지가 정상적으로 입력되었는지 검사합니다.
+             this.submitMessage(); // 응원 메시지 등록 처리
+           } else {
+             // 응원 메시지가 입력되지 않은 경우 에러 메시지 출력
+             Swal.fire({
+               text: '한 줄평을 입력해주세요.',
+               icon: 'error',
+               timer: 2000
+             });
+           }
+         },
+         // 이메일 인증 버튼
+         s4_emailBtn() {
+           this.emailVerified = true;
+           this.showEmailMessage();
+         },
 
-      // 응원 메시지 입력 후 등록 날짜 설정
-      setRegistrationDateTime() {
-        this.registrationDateTime = new Date().toLocaleString();
-      },
-      // 응원 메시지 등록 처리 메서드
-      async submitMessage() {
+         // 응원 메시지 입력 후 등록 날짜 설정
+         setRegistrationDateTime() {
+           this.registrationDateTime = new Date().toLocaleString();
+         },
+         // 응원 메시지 등록 처리 메서드
+         async submitMessage() {
 
-        // 이미지 선택 여부 확인
-        if (!this.selectedImage) {
-          // 이미지가 선택되지 않은 경우 기본 이미지를 설정합니다.
-          this.selectedImage = "s4_default_image.png"; // 기본 이미지 파일명으로 설정
-        }
+           // 이미지 선택 여부 확인
+           if (!this.selectedImage) {
+             // 이미지가 선택되지 않은 경우 기본 이미지를 설정합니다.
+             this.selectedImage = "s4_default_image.png"; // 기본 이미지 파일명으로 설정
+           }
 
-        // 이메일이 인증되었는지 확인
-        if (!this.emailVerified) {
-          // 이메일이 인증되지 않은 경우
-          console.error('이메일 인증이 완료되지 않았습니다.');
-          Swal.fire({
-            text: '이메일 인증이 완료되어야 합니다.',
-            icon: 'error',
-            timer: 2000
-          });
-          return; // 함수 종료
-        }
+           // 이메일이 인증되었는지 확인
+           if (!this.emailVerified) {
+             // 이메일이 인증되지 않은 경우
+             console.error('이메일 인증이 완료되지 않았습니다.');
+             Swal.fire({
+               text: '이메일 인증이 완료되어야 합니다.',
+               icon: 'error',
+               timer: 2000
+             });
+             return; // 함수 종료
+           }
 
-        // 이메일과 메시지가 입력되었는지 확인
-        if (!this.userEmail || !this.s4_usermemo) {
-          console.error('이메일과 메시지를 입력해야 합니다.');
-          Swal.fire({
-            text: '이메일과 메시지를 입력해야 합니다.',
-            icon: 'error',
-            timer: 2000
-          });
-          return; // 함수 종료
-        }
+           // 이메일과 메시지가 입력되었는지 확인
+           if (!this.userEmail || !this.s4_usermemo) {
+             console.error('이메일과 메시지를 입력해야 합니다.');
+             Swal.fire({
+               text: '이메일과 메시지를 입력해야 합니다.',
+               icon: 'error',
+               timer: 2000
+             });
+             return; // 함수 종료
+           }
 
-        // 모든 조건이 충족되었을 때 실행되는 부분
-        // 서버 요청 대신에 콘솔에 응원 메시지 출력
-        console.log('User Email:', this.userEmail);
-        console.log('User Message:', this.s4_usermemo);
-        this.setRegistrationDateTime(); // 등록 날짜 및 시간 설정
-        console.log('Registration Date Time:', this.registrationDateTime);
-        this.cheerMessages.push({
-          message: this.s4_usermemo,
-          image: this.selectedImage,
-          registrationDateTime: this.registrationDateTime // 등록된 날짜를 사용합니다.
-        });
-        // 입력 필드를 초기화합니다.
-        this.s4_usermemo = '';
-        this.clearInputField = true;
-        // 등록된 응원 메시지를 표시합니다.
-        this.showCheerMessages();
-      },
-      // ...
-      // 등록된 응원 메시지를 표시하는 메서드
-      showCheerMessages() {
-        // 입력 필드가 초기화되면서 새로운 응원 메시지가 추가되었으므로 스크롤을 가장 아래로 조정합니다.
-        this.scrollToBottom();
-      },
-      // 응원 메시지 입력 후 스크롤을 가장 아래로 조정하는 메서드
-      scrollToBottom() {
-        const cheerMsg = document.querySelector('.cheerMsg');
-        if (cheerMsg) {
-          cheerMsg.scrollTop = cheerMsg.scrollHeight;
-        }
-      },
+           // 모든 조건이 충족되었을 때 실행되는 부분
+           // 서버 요청 대신에 콘솔에 응원 메시지 출력
+           console.log('User Email:', this.userEmail);
+           console.log('User Message:', this.s4_usermemo);
+           this.setRegistrationDateTime(); // 등록 날짜 및 시간 설정
+           console.log('Registration Date Time:', this.registrationDateTime);
+           this.cheerMessages.push({
+             message: this.s4_usermemo,
+             image: this.selectedImage,
+             registrationDateTime: this.registrationDateTime // 등록된 날짜를 사용합니다.
+           });
+           // 입력 필드를 초기화합니다.
+           this.s4_usermemo = '';
+           this.clearInputField = true;
+           // 등록된 응원 메시지를 표시합니다.
+           this.showCheerMessages();
+         },
+         // ...
+         // 등록된 응원 메시지를 표시하는 메서드
+         showCheerMessages() {
+           // 입력 필드가 초기화되면서 새로운 응원 메시지가 추가되었으므로 스크롤을 가장 아래로 조정합니다.
+           this.scrollToBottom();
+         },
+         // 응원 메시지 입력 후 스크롤을 가장 아래로 조정하는 메서드
+         scrollToBottom() {
+           const cheerMsg = document.querySelector('.cheerMsg');
+           if (cheerMsg) {
+             cheerMsg.scrollTop = cheerMsg.scrollHeight;
+           }
+         },
 
-      // 응원 메시지 입력 후 SweetAlert 표시
-      showEmailMessage() {
-        Swal.fire({
-          text: '인증이 완료되었습니다.',
-          icon: 'success',
-          timer: 2000
-        }).then(() => {
-          // SweetAlert 알림이 사라진 후에 텍스트를 나타내도록 setTimeout 사용
-          setTimeout(() => {
-            const emailMsg = document.querySelector('.s4emailMsg');
-            emailMsg.style.display = 'block';
-          }, 100);
-        });
-      },
-      // 응원 메시지 팝업 표시
-      s4_cheerBtn() {
-        const letter = document.querySelector('#s4_letterPopup');
-        letter.style.display = 'block';
-      },
-      // 응원 메시지 팝업 닫기
-      toggleLetterX() {
-        const letter = document.querySelector('#s4_letterPopup');
-        letter.style.display = 'none';
-      },
-      // 응원 메시지 표시 후 스크롤을 가장 아래로 조정
-      showCheerMessage() {
-        const cheerMsg = document.querySelector('.s4_int');
-        cheerMsg.scrollTop = cheerMsg.scrollHeight;
-      },
-      // 이미지 선택기 토글 메서드
-      toggleImageSelector() {
-        this.showImageSelector = !this.showImageSelector;
-      },
-      // 이미지 선택 시 호출되는 메서드
-      selectImage(selectedImage) {
-        console.log('선택된 이미지:', selectedImage);
-        this.selectedImage = selectedImage;
-        // 이미지 크기 조정 로직을 이미지 선택기를 닫기 전에 호출
-        this.adjustImageSelectorSize(selectedImage);
-        this.showImageSelector = false; // 이미지를 선택하면 선택기를 닫습니다.
+         // 응원 메시지 입력 후 SweetAlert 표시
+         showEmailMessage() {
+           Swal.fire({
+             text: '인증이 완료되었습니다.',
+             icon: 'success',
+             timer: 2000
+           }).then(() => {
+             // SweetAlert 알림이 사라진 후에 텍스트를 나타내도록 setTimeout 사용
+             setTimeout(() => {
+               const emailMsg = document.querySelector('.s4emailMsg');
+               emailMsg.style.display = 'block';
+             }, 100);
+           });
+         },
+         // 응원 메시지 팝업 표시
+         s4_cheerBtn() {
+           const letter = document.querySelector('#s4_letterPopup');
+           letter.style.display = 'block';
+         },
+         // 응원 메시지 팝업 닫기
+         toggleLetterX() {
+           const letter = document.querySelector('#s4_letterPopup');
+           letter.style.display = 'none';
+         },
+         // 응원 메시지 표시 후 스크롤을 가장 아래로 조정
+         showCheerMessage() {
+           const cheerMsg = document.querySelector('.s4_int');
+           cheerMsg.scrollTop = cheerMsg.scrollHeight;
+         },
+         // 이미지 선택기 토글 메서드
+         toggleImageSelector() {
+           this.showImageSelector = !this.showImageSelector;
+         },
+         // 이미지 선택 시 호출되는 메서드
+         selectImage(selectedImage) {
+           console.log('선택된 이미지:', selectedImage);
+           this.selectedImage = selectedImage;
+           // 이미지 크기 조정 로직을 이미지 선택기를 닫기 전에 호출
+           this.adjustImageSelectorSize(selectedImage);
+           this.showImageSelector = false; // 이미지를 선택하면 선택기를 닫습니다.
 
-        // 이미지를 선택한 후 해당 이미지를 화면에 반영하기 위해
-        // .s4_raund 클래스를 가진 요소에 선택된 이미지를 바인딩합니다.
-        const imageElement = document.querySelector('.s4_raund');
-        if (imageElement) {
-          imageElement.src = require(`./assets/images/${selectedImage}`);
-        }
-      },
-      // 이미지 선택기의 크기를 조정하는 새로운 메서드
-      adjustImageSelectorSize(selectedImage) {
-        const img = new Image();
-        img.src = require(`./assets/images/${selectedImage}`);
-        img.onload = () => {
-          const imageSelector = document.querySelector('.imageSelector');
-          if (!imageSelector) {
-            console.error('.imageSelector 요소를 찾을 수 없습니다.');
-            return;
-          }
-          imageSelector.style.width = img.width + 'px';
-          imageSelector.style.height = img.height + 'px';
-        };
-      },
-    }
-  }
+           // 이미지를 선택한 후 해당 이미지를 화면에 반영하기 위해
+           // .s4_raund 클래스를 가진 요소에 선택된 이미지를 바인딩합니다.
+           const imageElement = document.querySelector('.s4_raund');
+           if (imageElement) {
+             imageElement.src = require(`./assets/images/${selectedImage}`);
+           }
+         },
+         // 이미지 선택기의 크기를 조정하는 새로운 메서드
+         adjustImageSelectorSize(selectedImage) {
+           const img = new Image();
+           img.src = require(`./assets/images/${selectedImage}`);
+           img.onload = () => {
+             const imageSelector = document.querySelector('.imageSelector');
+             if (!imageSelector) {
+               console.error('.imageSelector 요소를 찾을 수 없습니다.');
+               return;
+             }
+             imageSelector.style.width = img.width + 'px';
+             imageSelector.style.height = img.height + 'px';
+           };
+         },
+       }
+     }
 </script>
 
 <style>

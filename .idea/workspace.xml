@@ -4,18 +4,61 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb2d7a22-ec5b-4f91-928f-511c1d2662ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/Controller/CommentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/domain/CheerComments.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/repository/CheerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/repository/JdbcCheerCommentsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/service/CheerCommentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/comments/commentList.html" afterDir="false" />
+    <list default="true" id="bb2d7a22-ec5b-4f91-928f-511c1d2662ab" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/SpringConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/SpringConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/Controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/Controller/CommentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/Project1Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/Project1Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/domain/CheerComments.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/domain/CheerComments.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/repository/CheerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/repository/CheerRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/repository/JdbcCheerCommentsRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/repository/JdbcCheerCommentsRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/service/CheerCommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/service/CheerCommentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/section4_main.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/js/section4_main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/comments/commentList.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/comments/commentList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/helloworld.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/helloworld.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CheerCommentService.class.uniqueId3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CheerComments.class.uniqueId4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CheerRepository.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CommentController.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/JdbcCheerCommentsRepository.class.uniqueId5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SpringConfig.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SpringConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/Controller/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/Controller/WebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/domain/Reservations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/domain/Reservations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/repository/JdbcReservationsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/repository/JdbcReservationsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/Controller/CheerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/Controller/CheerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/Controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/Controller/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/Project1Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/Project1Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/domain/CheerComments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/domain/CheerComments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/mapper/CheerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/mapper/CheerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/model/Cheer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/model/Cheer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/repository/CheerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/repository/CheerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/repository/JdbcCheerCommentsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/repository/JdbcCheerCommentsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/service/CheerCommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/service/CheerCommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/service/CheerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/service/CheerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/service/commentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/service/commentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/cheerMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/cheerMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/section4_main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/section4_main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/comments/commentList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/comments/commentList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/helloworld.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/helloworld.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/main/java/com/example/CheerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/src/main/java/com/example/CheerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/router/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/src/router/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/views/Cheer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/src/views/Cheer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/views/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/src/views/HelloWorld.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +90,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -61,6 +104,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -69,29 +115,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Project1Application.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Gradle.Build team2_project10.executor": "Run",
-    "Gradle.team2_project1 [:Project1Application.main()].executor": "Run",
-    "Gradle.team2_project1.executor": "Run",
-    "Gradle.team2_project10 [:Project1Application.main()].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "BSH",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/TJ/Documents/team2_project10",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Project1Application.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Gradle.Build team2_project10.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.team2_project1 [:Project1Application.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.team2_project1.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.team2_project10 [:Project1Application.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;BSH&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/TJ/Documents/team2_project10/build.gradle&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JavaScript&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TJ\Documents\team2_project10\vue-app\src" />
+      <recent name="C:\Users\TJ\Documents\team2_project10\vue-app\src\service" />
+      <recent name="C:\Users\TJ\Documents\team2_project10\vue-app\backend\routes" />
+      <recent name="C:\Users\TJ\Documents\team2_project10\vue-app\src\router" />
+      <recent name="C:\Users\TJ\Documents\team2_project10\vue-app\src\assets\images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\TJ\Documents\team2_project1\src\main\resources\static\js" />
-      <recent name="C:\Users\TJ\Documents\team2_project1\src\main\resources\static\css" />
-      <recent name="C:\Users\TJ\Documents\team2_project1\src\main\resources\static" />
+      <recent name="C:\Users\TJ\Documents\team2_project10\vue-app\src\views" />
+      <recent name="C:\Users\TJ\Documents\team2_project10\vue-app\src" />
+      <recent name="C:\Users\TJ\Documents\team2_project10\vue-app\backend" />
+      <recent name="C:\Users\TJ\Documents\team2_project10\vue-app\backend\routes" />
+      <recent name="C:\Users\TJ\Documents\team2_project10\vue-app\src\assets\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -110,11 +171,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Project1Application" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

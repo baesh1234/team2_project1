@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="">
 <head>
 	<meta charset="UTF-8">
 	<title>블루아카100주년</title>
@@ -66,13 +66,13 @@
 		<div>
 			<ul class="commit">
 				<li class="commit_num1">
-					<form id="commit_num2">
+					<form id="commit_num2" action="/saveComment" method="post">
 						<h2>한줄평쓰기<span></span></h2>
 						<span class="ps_box">
 							<input type="text" class="int2" name="phone" placeholder="핸드폰 번호를 입력해주세요" maxlength="13"/>
 							<div class="verification-status"></div>
 							<button class="verification-request-button">인증 요청</button>
-							<input type="text" class="verificationCode" placeholder="인증번호 입력"/>
+							<input type="text" class="verificationCode" name="verificationCode" placeholder="인증번호 입력"/>
 							<button class="verify-button">인증번호 확인</button>
 							<div class="verification-status"></div>
 							<input type="text" class="int" name="content" placeholder="한줄평을 입력해주세요"/>
@@ -88,4 +88,7 @@
 	<div class="fullsection full5" pageNum="5"><span>5 PAGE</span></div>
 </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="js/section4_main.js"></script>
+
 </html>

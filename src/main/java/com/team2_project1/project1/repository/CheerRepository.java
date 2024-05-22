@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface CheerRepository  {
 
-//    CheerComments saveComment (CheerComments cheerComments);
+    CheerComments saveComment (CheerComments cheerComments);
     List<CheerComments> findAllComment();
 }

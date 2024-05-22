@@ -1,4 +1,5 @@
 <template>
+  <HelloWorld msg="Welcome to Your Vue.js App"/>
   <div class="position-relative">
     <div id="fullpage">
       <div class="section s1" pageNum="1">
@@ -146,6 +147,10 @@
               <img class="s4_message-image" :src="require(`./assets/images/${message.image}`)" :alt="message.image">
               <p class="s4_message">{{ message.message }}</p>
               <p>{{ message.registrationDateTime }}</p>
+              <!-- 좋아요 버튼 추가 -->
+              <button @click="likeComment(index)">좋아요</button>
+              <div v-if="message.likes !== undefined">좋아요 수: {{ message.likes }}</div>
+              <div v-else>좋아요 수: 0</div>
             </div>
           </div>
           <img class="s4_message-image" v-if="cheerMessage" :src="require(`./assets/images/${cheerMessage.image}`)" :alt="cheerMessage.image">
@@ -231,9 +236,15 @@
 
 <script>
   import Swal from 'sweetalert2';
-
+  import axios from 'axios'
+  import HelloWorld from './views/HelloWorld.vue'
 
      export default {
+      name: 'project1',
+      components: {
+      HelloWorld
+      },
+
        mounted() {
          new fullpage('#fullpage', {
            sectionSelector: '.section',
@@ -242,6 +253,12 @@
            scrollingSpeed: 1000,
            anchors: ['section1','section2', 'section3', 'section4', 'section5'],
          });
+          // 로컬 스토리지에서 cheerMessages 불러오기
+      const storedMessages = localStorage.getItem('cheerMessages');
+      if (storedMessages) {
+        this.cheerMessages = JSON.parse(storedMessages);
+      }
+
        },
        data() {
          return {
@@ -254,6 +271,8 @@
            userMessage: '',
            emailVerified: false,
            s4_usermemo: '',
+            comments: [],
+            cheerMessages: [],
            // 이미지 선택기 표시 여부
            showImageSelector: false,
            // 선택된 이미지 파일명
@@ -268,7 +287,7 @@
            selectedCheerMessage: null,
            // 다음 메시지를 위한 입력 필드를 초기화하는 플래그
            clearInputField: false,
-           registrationDateTime: ''
+           registrationDateTime: '',
          };
 
        },
@@ -418,62 +437,113 @@
          s4_emailBtn() {
            this.emailVerified = true;
            this.showEmailMessage();
+           // this.authEmail();
          },
 
          // 응원 메시지 입력 후 등록 날짜 설정
          setRegistrationDateTime() {
            this.registrationDateTime = new Date().toLocaleString();
          },
-         // 응원 메시지 등록 처리 메서드
-         async submitMessage() {
 
-           // 이미지 선택 여부 확인
-           if (!this.selectedImage) {
-             // 이미지가 선택되지 않은 경우 기본 이미지를 설정합니다.
-             this.selectedImage = "s4_default_image.png"; // 기본 이미지 파일명으로 설정
-           }
+    likeComment(index) {
+  // 해당 댓글의 좋아요 수를 증가시킵니다.
+  if (this.cheerMessages[index].likes === undefined) {
+    // 만약 좋아요 수가 정의되지 않았다면 0으로 초기화합니다.
+    Vue.set(this.cheerMessages[index], 'likes', 0);
+  }
+  // 좋아요 수를 증가시킵니다.
+  this.cheerMessages[index].likes++;
+},
 
-           // 이메일이 인증되었는지 확인
-           if (!this.emailVerified) {
-             // 이메일이 인증되지 않은 경우
-             console.error('이메일 인증이 완료되지 않았습니다.');
-             Swal.fire({
-               text: '이메일 인증이 완료되어야 합니다.',
-               icon: 'error',
-               timer: 2000
-             });
-             return; // 함수 종료
-           }
 
-           // 이메일과 메시지가 입력되었는지 확인
-           if (!this.userEmail || !this.s4_usermemo) {
-             console.error('이메일과 메시지를 입력해야 합니다.');
-             Swal.fire({
-               text: '이메일과 메시지를 입력해야 합니다.',
-               icon: 'error',
-               timer: 2000
-             });
-             return; // 함수 종료
-           }
+        // 응원 메시지 등록 처리 메서드
+        async submitMessage() {
+          // 이미지 선택 여부 확인
+          if (!this.selectedImage) {
+            // 이미지가 선택되지 않은 경우 기본 이미지를 설정합니다.
+            this.selectedImage = "s4_default_image.png"; // 기본 이미지 파일명으로 설정
+          }
 
-           // 모든 조건이 충족되었을 때 실행되는 부분
-           // 서버 요청 대신에 콘솔에 응원 메시지 출력
-           console.log('User Email:', this.userEmail);
-           console.log('User Message:', this.s4_usermemo);
-           this.setRegistrationDateTime(); // 등록 날짜 및 시간 설정
-           console.log('Registration Date Time:', this.registrationDateTime);
-           this.cheerMessages.push({
-             message: this.s4_usermemo,
-             image: this.selectedImage,
-             registrationDateTime: this.registrationDateTime // 등록된 날짜를 사용합니다.
-           });
-           // 입력 필드를 초기화합니다.
-           this.s4_usermemo = '';
-           this.clearInputField = true;
-           // 등록된 응원 메시지를 표시합니다.
-           this.showCheerMessages();
-         },
-         // ...
+          // 이메일이 인증되었는지 확인
+          if (!this.emailVerified) {
+            // 이메일이 인증되지 않은 경우
+            console.error('이메일 인증이 완료되지 않았습니다.');
+            Swal.fire({
+              text: '이메일 인증이 완료되어야 합니다.',
+              icon: 'error',
+              timer: 2000
+            });
+            return; // 함수 종료
+          }
+
+          // 이메일과 메시지가 입력되었는지 확인
+          if (!this.userEmail || !this.s4_usermemo) {
+            console.error('이메일과 메시지를 입력해야 합니다.');
+            Swal.fire({
+              text: '이메일과 메시지를 입력해야 합니다.',
+              icon: 'error',
+              timer: 2000
+            });
+            return; // 함수 종료
+          }
+
+
+      // 로컬 스토리지에 cheerMessages 저장
+      localStorage.setItem('cheerMessages', JSON.stringify(this.cheerMessages));
+
+
+          // 댓글 데이터 생성
+          const commentData = {
+            comment_content: this.s4_usermemo, // 수정된 부분
+            email: this.userEmail // 수정된 부분
+          };
+
+          // API 호출하여 댓글 저장
+          axios.post('http://localhost:8081/api/Cheer', commentData) // 백엔드 엔드포인트 주소에 맞게 수정해주세요.
+            .then(response => {
+              console.log('댓글이 성공적으로 저장되었습니다.', response.data);
+              // 저장된 댓글을 댓글 목록에 추가하여 즉시 표시
+              this.comments.push(response.data);
+              // 입력 필드 초기화
+              this.userEmail = ''; // 수정된 부분
+              this.s4_usermemo = ''; // 수정된 부분
+            })
+            .catch(error => {
+              console.error('댓글을 저장하는 동안 오류가 발생했습니다.', error);
+            });
+
+
+
+          // 모든 조건이 충족되었을 때 실행되는 부분
+          // 서버 요청 대신에 콘솔에 응원 메시지 출력
+          console.log('User Email:', this.userEmail);
+          console.log('User Message:', this.s4_usermemo);
+          this.setRegistrationDateTime(); // 등록 날짜 및 시간 설정
+          console.log('Registration Date Time:', this.registrationDateTime);
+          this.cheerMessages.push({
+            message: this.s4_usermemo,
+            image: this.selectedImage  || 's4_default_image.png',
+            registrationDateTime: this.registrationDateTime // 등록된 날짜를 사용합니다.
+          });
+          localStorage.setItem('cheerMessages', JSON.stringify(this.cheerMessages));
+          // 입력 필드를 초기화합니다.
+          this.s4_usermemo = '';
+          this.clearInputField = true;
+          // 등록된 응원 메시지를 표시합니다.
+          this.showCheerMessages();
+        },
+
+         getImageSrc(imageName) {
+      try {
+        return require(`./assets/images/${imageName}`);
+      } catch (e) {
+        return require(`./assets/images/s4_default_image.png`);
+      }
+    },
+
+        setRegistrationDateTime() {
+        this.registrationDateTime = new Date().toLocaleString();
+           },
          // 등록된 응원 메시지를 표시하는 메서드
          showCheerMessages() {
            // 입력 필드가 초기화되면서 새로운 응원 메시지가 추가되었으므로 스크롤을 가장 아래로 조정합니다.
@@ -486,6 +556,7 @@
              cheerMsg.scrollTop = cheerMsg.scrollHeight;
            }
          },
+
 
          // 응원 메시지 입력 후 SweetAlert 표시
          showEmailMessage() {
@@ -549,6 +620,8 @@
              imageSelector.style.height = img.height + 'px';
            };
          },
+
+
        }
      }
 </script>

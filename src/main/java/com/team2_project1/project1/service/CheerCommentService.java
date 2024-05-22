@@ -16,22 +16,22 @@ public class CheerCommentService {
         this.cheerRepository = cheerRepository;
     }
 
-//    public String save_comment(CheerComments cheerComments){
-//        cheerRepository.saveComment(cheerComments);
-//        return cheerComments.getComment_content();
-//    }
+    public String save_comment(CheerComments cheerComments){
+        cheerRepository.saveComment(cheerComments);
+        return cheerComments.getComment_content();
+    }
 
     public List<CheerComments> findComment(){
         return cheerRepository.findAllComment();
     }
     // 전체 댓글 조회
-//    public List<CheerComments> findComments(){
-//        return cheerRepository.findAllComment();
-//    }
+    public List<CheerComments> findComments(){
+        return cheerRepository.findAllComment();
+    }
 
     // 댓글 저장 메서드
-//    public void saveComment(CheerComments comment) {
-//        cheerRepository.saveComment(comment);
-//    }
+    public void saveComment(CheerComments comment) {
+        cheerRepository.saveComment(comment);
+    }
 
 }

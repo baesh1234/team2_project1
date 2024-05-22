@@ -20,6 +20,13 @@ public class CheerComments {
     private String phone_num;
     private String comment_content;
 
+    public CheerComments() {
+    }
+
+    public CheerComments(String commentContent) {
+        this.comment_content = commentContent;
+    }
+
     public String getCheer_comment() {
         return cheer_comment;
     }
@@ -51,4 +58,5 @@ public class CheerComments {
     public void setComment_content(String comment_content) {
         this.comment_content = comment_content;
     }
+
 }

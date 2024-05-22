@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.querySelector('.verify-button').addEventListener('click', function(event) {
         event.preventDefault();
-        const userCodeInput = document.querySelector('input[name="verificationCode');
+        const userCodeInput = document.querySelector('input[name="verificationCode"]');
         if (userCodeInput.value.trim() === "") {
             alert("인증번호를 입력해주세요.");
         } else if (userCodeInput.value === verificationCode) {

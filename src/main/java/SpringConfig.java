@@ -1,4 +1,5 @@
 import com.team2_project1.project1.repository.CheerRepository;
+
 import com.team2_project1.project1.repository.JdbcCheerCommentsRepository;
 import com.team2_project1.project1.repository.JdbcReservationsRepository;
 import com.team2_project1.project1.repository.ReservationsRepository;
@@ -9,6 +10,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 import javax.sql.DataSource;
@@ -39,4 +42,19 @@ public class SpringConfig {
         //return new MemoryMemberRepository();
         return new JdbcCheerCommentsRepository(dataSource);
     }
+
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:8081")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD")
+                        .allowCredentials(true);
+            }
+        };
+    }
+
 }

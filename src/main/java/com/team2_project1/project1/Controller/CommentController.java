@@ -24,15 +24,24 @@ public class CommentController {
     @GetMapping("/comments")
     public String list(Model model){
         List<CheerComments> cheerComments = cheerCommentService.findComment();
-        model.addAttribute("comment_content", cheerComments);
+        model.addAttribute("cheerComments", cheerComments); // 속성 이름을 cheerComments로 변경
         return "comments/commentList";
     }
 
-//    @PostMapping("/saveComment")
-//    public ResponseEntity<String> saveComment(@RequestParam("comment_content") String commentText) {
-//        CheerComments comment = new CheerComments(commentText);
-//        cheerCommentService.saveComment(comment); // 서비스를 통해 댓글 저장
-//        return ResponseEntity.ok("Comment saved successfully");
-//    }
+
+
+
+    @PostMapping("/saveComment")
+    public String saveComment(@RequestParam("phone") String phone,
+                              @RequestParam("comment_content") String commentContent) {
+        CheerComments comment = new CheerComments();
+        comment.setPhone_num(phone);
+        comment.setComment_content(commentContent);
+        cheerCommentService.saveComment(comment);
+        return "redirect:/comments"; // 저장 후 댓글 목록 페이지로 리다이렉트
+    }
+
+
+
 }
 

@@ -4,62 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb2d7a22-ec5b-4f91-928f-511c1d2662ab" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/SpringConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/SpringConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/Controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/Controller/CommentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/Project1Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/Project1Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/domain/CheerComments.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/domain/CheerComments.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/repository/CheerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/repository/CheerRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/repository/JdbcCheerCommentsRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/repository/JdbcCheerCommentsRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/service/CheerCommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/team2_project1/project1/service/CheerCommentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/section4_main.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/js/section4_main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/comments/commentList.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/comments/commentList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/helloworld.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/helloworld.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CheerCommentService.class.uniqueId3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CheerComments.class.uniqueId4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CheerRepository.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CommentController.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/JdbcCheerCommentsRepository.class.uniqueId5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SpringConfig.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SpringConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/Controller/CheerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/Controller/CheerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/Controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/Controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/Project1Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/Project1Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/domain/CheerComments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/domain/CheerComments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/mapper/CheerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/mapper/CheerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/model/Cheer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/model/Cheer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/repository/CheerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/repository/CheerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/repository/JdbcCheerCommentsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/repository/JdbcCheerCommentsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/service/CheerCommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/service/CheerCommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/service/CheerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/service/CheerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/service/commentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team2_project1/project1/service/commentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/cheerMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/cheerMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/section4_main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/section4_main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/comments/commentList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/comments/commentList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/helloworld.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/helloworld.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-app/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-app/src/main/java/com/example/CheerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/src/main/java/com/example/CheerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-app/src/router/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/src/router/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-app/src/views/Cheer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/src/views/Cheer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-app/src/views/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/src/views/HelloWorld.vue" afterDir="false" />
-    </list>
+    <list default="true" id="bb2d7a22-ec5b-4f91-928f-511c1d2662ab" name="Changes" comment="Changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,6 +56,9 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2faKURhY2dpSPsPpi7AyFy5Nh6P" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -182,5 +130,8 @@
       <updated>1714033764045</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

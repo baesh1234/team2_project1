@@ -1,6 +1,7 @@
 package com.team2_project1.project1.Controller;
 
 
+import com.team2_project1.project1.Mapper.MemberMapper;
 import com.team2_project1.project1.domain.EmailRequest;
 import com.team2_project1.project1.service.EmailVerificationService;
 import com.team2_project1.project1.service.MemberService;
@@ -40,6 +41,17 @@ public class WebController {
         }
     }
 
+
+
+    @Autowired
+    private MemberMapper memberMapper;
+
+    @GetMapping("/emailCount")
+    public int getEmailCount() {
+        return memberMapper.countAll();
+    }
+
+
     @PostMapping("/memberBook")
     public ResponseEntity<String> memberBook(@RequestBody EmailRequest emailRequest){
         //서비스의 결과 메시지를 가져옴
@@ -51,4 +63,5 @@ public class WebController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message);
         }
     }
+
 }

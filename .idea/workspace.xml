@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="195db3a6-0782-4fe5-995c-d0a3dbe8df35" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/components/Section5.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/src/components/Section5.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +33,10 @@
   "keyToString": {
     "Gradle.D:/Git_work/team2_project1/team2_project1/project1/build.gradle.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "SHS",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Git_work/project1"
+    "last_opened_file_path": "D:/Git_work/project1",
+    "애플리케이션.Project1Application.executor": "Run"
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
@@ -40,7 +44,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <module name="team2_project1" />
       <method v="2">
@@ -51,8 +55,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.Unnamed" />
-      <item itemvalue="Compound.Unnamed" />
+      <item itemvalue="복합.Unnamed" />
+      <item itemvalue="애플리케이션.Unnamed" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

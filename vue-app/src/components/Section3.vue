@@ -61,18 +61,12 @@
     </div>
     <div class="s3writing">사전예약 누적 참여자 달성 보상!</div>
     <div id="s3app">
-      <!-- 숫자 입력 필드 -->
-      <input v-model.number="number" type="number" placeholder="숫자를 입력하세요" class="s3input">
-      <!-- 입력 버튼 -->
-      <button @click="submitNumber" class="s3button">예약</button>
-      <!-- 출력된 숫자 합계를 보여주는 곳 -->
-      <div class="s3reservations">누적 사전예약 인원 {{ total }} 명!</div>
       <!-- 프로그레스 바와 마일스톤 표시 -->
       <div class="progress-container">
         <div class="s3progress" :style="{ width: progressPercent + '%' }"></div>
         <!-- 마일스톤 위치에 눈금 표시 -->
-        <div v-for="(milestone, index) in milestones" :key="'milestone'+index" class="milestone" :style="{ left: (milestone / 600000 * 100) + '%' }">
-          <div v-if="index < milestones.length - 1" class="milestone-mark"></div> <!-- 60만 눈금 제외 -->
+        <div v-for="(milestone, index) in milestones" :key="'milestone'+index" class="milestone" :style="{ left: (milestone / 6 * 100) + '%' }">
+          <div v-if="index < milestones.length - 1" class="milestone-mark"></div> <!-- 6 눈금 제외 -->
           <div class="milestone-reached">{{ formatMilestone(milestone) }}</div>
           <div class="milestone-line"></div>
         </div>
@@ -82,62 +76,71 @@
         <img v-for="(milestone, index) in milestonesReached" :key="index" :src="milestoneImageUrl" class="milestoneImage" :id="'milestone' + (index + 1)" :style="milestone.style" alt="">
       </div>
     </div>
+    <div>
+      <p class="s3mail">누적 사전예약 인원: {{ emailCount }}명!</p>
+    </div>
   </div>
 </template>
-
 <script>
-
-
-export default {
-  name: 'Section3',
-  data() {
-    return { //section3
-      number: 0,
-      total: 0,
-      milestones: [100000, 200000, 300000, 400000, 500000, 600000],
-      milestonesReached: [],
-      milestoneImageUrl: require('@/assets/images/section3Stamp.png'),
-      progressPercent: 0,
-    };
-  },
-  methods: {
-    /***Section3 function***/
-    submitNumber: function() {
-      this.total += this.number;
-      this.checkMilestones();
-      // progressPercent 업데이트, 최대 100%로 제한
-      this.progressPercent = Math.min((this.total / 600000) * 100, 100);
-      this.number = 0;
+    export default {
+    name: 'Section3',
+    data() {
+      return {
+        emailCount: 0, // 현재 이메일 개수
+        milestones: [1, 2, 3, 4, 5, 6 ], // 이메일 개수 구간
+        milestonesReached: [],
+        milestoneImageUrl: require('@/assets/images/section3Stamp.png'),
+        progressPercent: 0, // 프로그레스 바 진행율
+      };
     },
-    checkMilestones: function() {
-      this.milestonesReached = []; // 기존 이미지 초기화
-      this.milestones.forEach((milestone, index) => {
-        if (this.total >= milestone) {
-          this.milestonesReached.push({
-            index: index,
-            style: this.getMilestoneStyle(index + 1)
+    created() {
+      this.fetchEmailCount();
+      this.startEmailCountInterval();
+    },
+    methods: {
+      fetchEmailCount() {
+        fetch('http://localhost:8080/emailCount')
+          .then(response => response.json())
+          .then(data => {
+            this.emailCount = data;
+            this.checkMilestones();
+            // 이메일 개수에 따라 프로그레스 바 진행율 업데이트
+            this.progressPercent = Math.min((this.emailCount / 6) * 100, 100);
+          })
+          .catch(error => {
+            console.error('Error fetching email count:', error);
           });
-        }
-      });
-    },
-    getMilestoneStyle: function(index) {
-      const positions = [
-        {top: '365px', left: '-650px'},
-        {top: '360px', left: '-435px'},
-        {top: '360px', left: '-225px'},
-        {top: '620px', left: '-650px'},
-        {top: '620px', left: '-435px'},
-        {top: '620px', left: '-225px'}
-      ];
-      return positions[index - 1];
-    },
-    formatMilestone: function(milestone) {
-      // 마일스톤 값을 '만 달성' 형식으로 포맷팅
-      return (milestone / 10000).toLocaleString() + '만달성!';
-    },
-  }
+      },
+      startEmailCountInterval() {
+        setInterval(this.fetchEmailCount, 5000);
+      },
+      checkMilestones() {
+        this.milestonesReached = [];
+        this.milestones.forEach((milestone, index) => {
+          if (this.emailCount >= milestone) {
+            this.milestonesReached.push({
+              index: index,
+              style: this.getMilestoneStyle(index + 1)
+            });
+          }
+        });
+      },
+      getMilestoneStyle(index) {
+        const positions = [
+          { top: '365px', left: '-650px' },
+          { top: '360px', left: '-435px' },
+          { top: '360px', left: '-225px' },
+          { top: '620px', left: '-650px' },
+          { top: '620px', left: '-435px' },
+          { top: '620px', left: '-225px' }
+        ];
+        return positions[index - 1];
+      },
+      formatMilestone(milestone) {
+        return milestone + '명 달성!';
+      },
+    }
 }
-
 </script>
 <style scoped>
 /*Section3*/
@@ -155,7 +158,7 @@ export default {
 }
 .s3notepad {
   position: absolute; /* 이미지 위치 고정 */
-  top: 300px;
+  top: 350px;
   left: 600px;
 }
 .s3text{
@@ -166,102 +169,102 @@ export default {
 }
 #text1 {
   position: absolute; /* 이미지 위치 고정 */
-  top:360px;
-  left:665px;
+  top:395px;
+  left:659px;
 }
 .s3blue10 {
   position: absolute; /* 이미지 위치 고정 */
-  top:15px;
+  top:25px;
   left:-55px;
 }
 #text01 {
   position: absolute; /* 이미지 위치 고정 */
-  top:170px;
-  left:40px;
+  top:148px;
+  left:38px;
 }
 #text2 {
   position: absolute; /* 이미지 위치 고정 */
-  top:360px;
-  left:880px;
+  top:395px;
+  left:859px;
   color: rgb(211, 157, 11);
 }
 .s3blue20 {
   position: absolute; /* 이미지 위치 고정 */
-  top:15px;
-  left:-50px;
+  top:25px;
+  left:-35px;
 }
 #text02 {
   position: absolute; /* 이미지 위치 고정 */
-  top:170px;
-  left:40px;
+  top:146px;
+  left:24px;
   color: rgb(211, 157, 11);
 }
 #text3 {
   position: absolute; /* 이미지 위치 고정 */
-  top:350px;
-  left:1105px;
+  top:386px;
+  left:1066px;
   color: rgb(154, 238, 179);
 }
 .s3blue30 {
   position: absolute; /* 이미지 위치 고정 */
-  top:25px;
-  left:-50px;
+  top:35px;
+  left:-35px;
 }
 #text03 {
   position: absolute; /* 이미지 위치 고정 */
-  top:170px;
-  left:40px;
+  top:144px;
+  left:24px;
   color: rgb(154, 238, 179);
 }
 #text4 {
   position: absolute; /* 이미지 위치 고정 */
-  top:620px;
-  left:665px;
+  top:642px;
+  left:653px;
   color: rgb(98, 110, 219);
 }
 .s3blue40 {
   position: absolute; /* 이미지 위치 고정 */
-  top:10px;
-  left:-70px;
+  top:18px;
+  left:-40px;
 }
 #text04 {
   position: absolute; /* 이미지 위치 고정 */
-  top:180px;
-  left:35px;
+  top:145px;
+  left:15px;
   color: rgb(98, 110, 219);
 }
 #text5 {
   position: absolute; /* 이미지 위치 고정 */
-  top:620px;
-  left:880px;
+  top:640px;
+  left:859px;
   color: rgb(216, 109, 109);
 }
 .s3arurelation {
   position: absolute; /* 이미지 위치 고정 */
-  top:45px;
-  left:-15px;
+  top:48px;
+  left:-9px;
 }
 #text05 {
   position: absolute; /* 이미지 위치 고정 */
-  top:150px;
-  left:35px;
+  top:130px;
+  left:29px;
   color: rgb(216, 109, 109);
 }
 #text6 {
   position: absolute; /* 이미지 위치 고정 */
-  top:620px;
-  left:1120px;
+  top:635px;
+  left:1085px;
   color: rgba(66, 66, 66, 0.719);
 }
 .s3Kayokorelation {
   position: absolute; /* 이미지 위치 고정 */
-  top:45px;
-  left:-27px;
+  top:55px;
+  left:-24px;
 }
 #text06 {
   position: absolute; /* 이미지 위치 고정 */
-  top:150px;
-  left:32px;
+  top:127px;
+  left:25px;
   color: rgba(66, 66, 66, 0.719);
 }
 .s3Kayoko {
@@ -305,12 +308,11 @@ export default {
   position: relative;
   width: 700px;
   height: 10px;
-  top:275px;
+  top:335px;
   left:-650px;
   background-color: #eee;
   border-radius: 8px;
 }
-
 .milestone {
   position: absolute;
   top: 0;
@@ -351,33 +353,6 @@ export default {
   border-radius: 8px;
   transition: width 0.5s ease-in-out;
 }
-.s3reservations {
-  font-family: 'Ownglyph_meetme-Rg'; /* 글씨 폰트 Section3만 적용*/
-  font-size: 20px;
-  font-weight: 300px;
-  color: black;
-  top: 30px;
-  position: absolute;
-}
-.s3input{
-  font-family: 'Ownglyph_meetme-Rg'; /* 글씨 폰트 Section3만 적용*/
-  font-size: 20px;
-  font-weight: 300px;
-  color: #FFFFFF;
-  background-color: #00D6FA;
-  border:1px solid #FFFFFF;
-  border-radius: 10px;
-
-}
-.s3button{
-  font-family: 'Ownglyph_meetme-Rg'; /* 글씨 폰트 Section3만 적용*/
-  font-size: 20px;
-  font-weight: 300px;
-  color: #FFFFFF;
-  background-color: #00D6FA;
-  border:1px solid #FFFFFF;
-  border-radius: 10px;
-}
 .s3writing {
   position: absolute;
   top: 265px;
@@ -387,4 +362,13 @@ export default {
   font-weight: 300px;
   color: #FFFFFF;
 }
+.s3mail {
+  position: absolute;
+  top: 10px;
+  left: 1259px;
+  font-family: 'Ownglyph_meetme-Rg'; /* 글씨 폰트 Section3만 적용*/
+  font-size: 35px;
+  color: black;
+  }
+
 </style>

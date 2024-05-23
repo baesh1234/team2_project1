@@ -8,7 +8,7 @@
         <button>인증메일보내기</button>
       </form>
     </div>
-    <p v-if="s2message">{{ s2message }}</p>
+    <p class="s2emailMsg" v-if="s2message">{{ s2message }}</p>
     <div class="container s2checkContainer">
       <input type='checkbox'
              name='agreeall'
@@ -115,35 +115,36 @@ export default {
         const response = await axios.post('http://localhost:8080/sendEmail', {to: this.to});
         this.s2message = '이메일이 성공적으로 전송 되었습니다.';
       }catch (error) {
-        this.s2message = '이메일이 전송이 실패 했습니다.';
+        this.s2message = '이메일 전송이 실패 했습니다.';
       }
     },
     //사전예약 등록 버튼 alert 출력
-    s2AlertBtn(){
-      const emailMsg = document.querySelector('.s2emailMsg');
-      const emailVerified = emailMsg.style.display === 'block';
+    async s2AlertBtn(){
       const selectAllCheckbox = document.querySelector('input[value="selectall"]');
       const allAgreed = selectAllCheckbox.checked;
 
-      if (emailVerified && allAgreed) {
-        // SweetAlert2로 'O' 알림을 출력하고, 확인 버튼을 누르면 다음 섹션으로 이동합니다.
-        Swal.fire({
-          icon: 'success',
-          title: '모든 조건이 충족되었습니다.',
-          showConfirmButton: true,
-        }).then(() => {
-          // alert의 확인버튼을 누를시 section3으로 이동
-          // section3으로 이동합니다.
-          fullpage_api.moveTo(4);
-          console.log('slide');
-        });
+      if (allAgreed) {
+        try {
+          const response = await axios.post('http://localhost:8080/memberBook', { to: this.to });
+          Swal.fire({
+            icon: 'success',
+            title: response.data,
+            showConfirmButton: true,
+          });
+        } catch (error) {
+          Swal.fire({
+            icon: 'error',
+            title: error.response.data,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
       } else {
-        // SweetAlert2로 'X' 알림을 출력합니다.
         Swal.fire({
           icon: 'error',
-          title: '이메일 인증이 완료되었고 모든 항목에 동의해야 합니다.',
+          title: '이메일 등록과 약관을 모두 동의해주세요.',
           showConfirmButton: false,
-          timer: 1500, // 1.5초 후에 자동으로 닫힙니다.
+          timer: 1500,
         });
       }
     },
@@ -188,8 +189,8 @@ export default {
   top: 400px;
 }
 .s2emailMsg{
-  display: none;
   position: absolute;
+  z-index: 2;
   left: 480px;
   top: 366px;
   color : #007bff;

@@ -14,4 +14,10 @@ public interface MemberMapper {
 
     @Select("SELECT COUNT(*) FROM member WHERE email = #{email}")
     int countByEmail(@Param("email") String email);
+
+    @Select("SELECT COUNT(*) FROM member")
+    int countAll();
+
 }
+
+

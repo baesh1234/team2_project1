@@ -1,6 +1,7 @@
 package com.team2_project1.project1.Controller;
 
 
+import com.team2_project1.project1.Mapper.MemberMapper;
 import com.team2_project1.project1.domain.EmailRequest;
 import com.team2_project1.project1.service.EmailVerificationService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -34,4 +35,14 @@ public class WebController {
             response.sendRedirect("/verification-failure.html");
         }
     }
+
+
+    @Autowired
+    private MemberMapper memberMapper;
+
+    @GetMapping("/emailCount")
+    public int getEmailCount() {
+        return memberMapper.countAll();
+    }
+
 }

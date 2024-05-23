@@ -3,8 +3,11 @@ package com.team2_project1.project1.Controller;
 
 import com.team2_project1.project1.domain.EmailRequest;
 import com.team2_project1.project1.service.EmailVerificationService;
+import com.team2_project1.project1.service.MemberService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -17,6 +20,8 @@ public class WebController {
 
     @Autowired
     private EmailVerificationService emailVerificationService;
+    @Autowired
+    private MemberService memberService;
 
     @PostMapping("/sendEmail")
     public void sendEmail(@RequestBody EmailRequest emailRequest){
@@ -29,9 +34,21 @@ public class WebController {
         boolean isVerified = emailVerificationService.verifyToken(token);
 
         if (isVerified) {
-            response.sendRedirect("인증이 성공하였습니다.");
+            response.sendRedirect("/verification-success.html");
         } else {
             response.sendRedirect("/verification-failure.html");
+        }
+    }
+
+    @PostMapping("/memberBook")
+    public ResponseEntity<String> memberBook(@RequestBody EmailRequest emailRequest){
+        //서비스의 결과 메시지를 가져옴
+        String message = memberService.bookMember(emailRequest.getTo());
+        //등록 성공 메시지이면 ResponseEntity를 이용하여 http 200ok를 날리고 그렇지 않을경우 400을 날림
+        if (message.equals("성공적으로 등록되었습니다.")) {
+            return ResponseEntity.ok(message);
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message);
         }
     }
 }

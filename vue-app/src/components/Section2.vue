@@ -29,8 +29,9 @@
              name='agree'
              value='eventAgree'
              @click='s2uncheckSelectAll()||s2checkSelectAll()'/> 이벤트 등 프로모션 알림 수신 동의
+      <img @click='s2AlertBtn()' src="../assets/images/s2submitButton.png" alt="submitBtnImg" class="s2submitBtn">
     </div>
-    <a @click='s2AlertBtn()'><img src="../assets/images/s2submitButton.png" alt="submitBtnImg" class="s2submitBtn"></a>
+
   </div>
 </template>
 
@@ -179,8 +180,8 @@ export default {
   position: absolute;
   z-index: 2;
   width : 30rem;
-  bottom: 100px;
-  left: 650px;
+  top: 20rem;
+  left: 10rem;
 }
 .s2checkContainer {
   position: absolute;

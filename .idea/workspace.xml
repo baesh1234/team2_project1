@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="195db3a6-0782-4fe5-995c-d0a3dbe8df35" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-app/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue-app/src/components/Section5.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/src/components/Section5.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,22 +27,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.D:/Git_work/team2_project1/team2_project1/project1/build.gradle.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "SHS",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Git_work/project1",
-    "애플리케이션.Project1Application.executor": "Run"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.D:/Git_work/team2_project1/team2_project1/project1/build.gradle.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;SHS&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Git_work/project1&quot;,
+    &quot;애플리케이션.Project1Application.executor&quot;: &quot;Run&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "JAVA"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JAVA&quot;
     ]
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="애플리케이션.Project1Application">
+    <configuration name="Project1Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.team2_project1.project1.Project1Application" />
+      <module name="teamproject1.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.team2_project1.project1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <module name="team2_project1" />
       <method v="2">
@@ -57,7 +68,13 @@
     <list>
       <item itemvalue="복합.Unnamed" />
       <item itemvalue="애플리케이션.Unnamed" />
+      <item itemvalue="애플리케이션.Project1Application" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="애플리케이션.Project1Application" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

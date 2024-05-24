@@ -3,8 +3,7 @@
 
 
     <div class="section5_wrapper">
-      <div class="section5_arona"></div>
-      <div class="section5_plana"></div>
+
 
       <div class="section5_header">
         <div class="secstion5_top">
@@ -26,32 +25,42 @@
 
       </div>
 
-      <div class="secstion5_social">
-        <div class="secstion5_imoticon1"><img src="../assets/images/물루.gif" alt="" width="80px" height="80px"></div>
-        <div class="secstion5_sns1" ><img src="../assets/images/instagram.png" alt="" width="60px" height="60px" style="border: 4px solid yellow" no-repeat>instagram<br>&nbsp;</div>
-        <div class="secstion5_sns2" ><img src="../assets/images/xlogo.png" alt="" width="60px" height="60px" style="border: 4px solid yellow" no-repeat><br>x<br>(前 트위터)</div>
-        <div class="secstion5_sns3" ><img src="../assets/images/blueachive.png" alt="" width="60px" height="60px" style="border: 4px solid yellow" no-repeat><br>블루아카<br> 커뮤니티</div>
-        <div class="secstion5_imoticon2"><img src="../assets/images/아루.gif" alt="" width="80px" height="80px"></div>
+      <div class="section5_under">
+                      <div class="section5_arona"></div>
+
+                      <div class="section5_under-middle">
+                          <div class="secstion5_social">
+                              <div class="secstion5_imoticon1" ><img src="../assets/images/물루.gif" alt="" width="80px" height="80px"></div>
+                              <div class="secstion5_sns1" ><img src="../assets/images/instagram.png" alt="" width="60px" height="60px" style="border: 4px solid yellow" no-repeat >instagram<br>&nbsp;</div>
+                              <div class="secstion5_sns2" ><img src="../assets/images/xlogo.png" alt="" width="60px" height="60px" style="border: 4px solid yellow" no-repeat><br>x<br>(前 트위터)</div>
+                              <div class="secstion5_sns3" ><img src="../assets/images/blueachive.png" alt="" width="60px" height="60px" style="border: 4px solid yellow" no-repeat><br>블루아카<br> 커뮤니티</div>
+                              <div class="secstion5_imoticon2"><img src="../assets/images/아루.gif" alt="" width="80px" height="80px"></div>
 
 
-      </div>
+                          </div>
 
 
 
 
-      <div class="secstion5_present">
-        <div class="secstion5_gift1">
-          <img src="../assets/images/starbuks.jpeg" alt="" width="170px" height="170px"><br>스타벅스 기프티콘<br>100명
-        </div>
+                          <div class="secstion5_present">
+                              <div class="secstion5_gift1">
+                                  <img src="../assets/images/starbuks.jpeg" alt="" width="170px" height="170px"><br>스타벅스 기프티콘<br>100명
+                              </div>
 
-        <div class="secstion5_gift2">
-          <img src="../assets/images/figure.webp" alt="" width="170px" height="170px"><br>아로나 피규어<br>1명
-        </div>
+                              <div class="secstion5_gift2">
+                                  <img src="../assets/images/figure.webp" alt="" width="170px" height="170px"><br>아로나 피규어<br>1명
+                              </div>
 
-        <div class="secstion5_gift3">
-          <img src="../assets/images/giftcard.jpg" alt="" width="170px" height="170px"><br>구글기프트카드 10만원<br>10명
-        </div>
-      </div>
+                              <div class="secstion5_gift3">
+                                  <img src="../assets/images/giftcard.jpg" alt="" width="170px" height="170px"><br>구글기프트카드 10만원<br>10명
+                              </div>
+                          </div>
+
+
+                      </div>
+
+                      <div class="section5_plana"></div>
+                  </div>
 
       <div class="section5_back">
 
@@ -130,6 +139,11 @@ export default {
     color: azure;
 }
 
+.section5_under{
+    display: flex;
+    justify-content: space-between;
+}
+
 .secstion5_social{
 
     margin: 10px;
@@ -171,7 +185,7 @@ export default {
     margin-left: 10px; margin-right: 10px;
 
     display: inline-block;
-    width: 150px; height: 150px;
+    width: 170px; height: 170px;
 }
 .secstion5_gift1{
     background-image: url(../assets/images/gift.com.png);
@@ -211,8 +225,7 @@ export default {
     background-image: url("../assets/images/아로나.png");
     background-size: cover;
     background-repeat: no-repeat;
-    position: absolute;
-    left:0; bottom: 0;
+
 }
 
 .section5_plana{
@@ -221,8 +234,7 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
 
-    position: absolute;
-    right: 0; bottom: 0;
+
 }
 
 </style>

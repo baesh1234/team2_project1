@@ -13,7 +13,7 @@ public interface MemberMapper {
     int countByEmail(@Param("email") String email);
 
     @Update("UPDATE `javadb2`.`member` SET `book`='1' WHERE email = #{email}")
-    boolean updateBook(@Param("email") String email);
+    int updateBook(@Param("email") String email);
 
     @Select("select book from member where email = #{email}")
     boolean findBook(@Param("email") String email);

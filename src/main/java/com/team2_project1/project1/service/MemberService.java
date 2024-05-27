@@ -25,5 +25,9 @@ public class MemberService {
             return "이메일 인증을 먼저 진행해 주세요.";
         }
     }
-    //등록인원 카운팅 서비스
+   // 이메일 중복체크
+    public boolean findBook(String email) {
+        return memberMapper.findBook(email);
+    }
+
 }

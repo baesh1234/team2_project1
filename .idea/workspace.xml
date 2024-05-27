@@ -6,6 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="195db3a6-0782-4fe5-995c-d0a3dbe8df35" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/assets/images/blueachive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/assets/images/board2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/assets/images/figure.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/assets/images/gift.com.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/assets/images/giftcard.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/assets/images/instagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/assets/images/starbuks.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/assets/images/xlogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/assets/images/물루.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/assets/images/아로나.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/assets/images/아루.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-app/src/assets/images/프라나.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/vue-app/src/components/Section5.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-app/src/components/Section5.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -15,4 +15,5 @@ public interface CheerMapper {
 
     @Insert("INSERT INTO cheer_comments (comment_content, email) VALUES (#{commentContent}, #{email})")
     void insertCheer(Cheer cheer);
+
 }

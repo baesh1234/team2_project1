@@ -17,4 +17,7 @@ public interface MemberMapper {
 
     @Select("select book from member where email = #{email}")
     boolean findBook(@Param("email") String email);
+
+    @Select("SELECT COUNT(*) FROM member WHERE book = 1")
+    int countAll();
 }

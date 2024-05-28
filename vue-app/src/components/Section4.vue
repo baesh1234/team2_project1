@@ -34,11 +34,11 @@
 
 <script>
 import axios from "axios";
-        import HelloWorld from './HelloWorld.vue';
+import HelloWorld from './HelloWorld.vue';
 
 export default {
   name: 'Section4',
-          components: {
+  components: {
     HelloWorld
   },
 
@@ -57,18 +57,18 @@ export default {
   },
   data() {
     return {
-            // section4
-            userEmail: '',
-            userMessage: '',
-            emailVerified: false,
-            s4_usermemo: '',
-            showImageSelector: false,
-            selectedImage: null,
-            images: ["s4_arona_raund.png", "s4_mika.png", "s4_toki.png"],
-    cheerMessages: [],
-    selectedCheerMessage: null,
-            clearInputField: false,
-            registrationDateTime: ''
+      // section4
+      userEmail: '',
+      userMessage: '',
+      emailVerified: false,
+      s4_usermemo: '',
+      showImageSelector: false,
+      selectedImage: null,
+      images: ["s4_arona_raund.png", "s4_mika.png", "s4_toki.png"],
+      cheerMessages: [],
+      selectedCheerMessage: null,
+      clearInputField: false,
+      registrationDateTime: ''
     };
   },
   methods: {
@@ -95,9 +95,9 @@ export default {
         this.submitMessage();
       } else {
         Swal.fire({
-                text: '한 줄평을 입력해주세요.',
-                icon: 'error',
-                timer: 2000
+          text: '한 줄평을 입력해주세요.',
+          icon: 'error',
+          timer: 2000
         });
       }
     },
@@ -109,17 +109,17 @@ export default {
           this.showEmailMessage();
         } else {
           Swal.fire({
-                  text: '사전등록을 해주세요.',
-                  icon: 'error',
-                  timer: 2000
+            text: '사전등록을 해주세요.',
+            icon: 'error',
+            timer: 2000
           });
         }
       } catch (error) {
         console.error('Error verifying email:', error);
         Swal.fire({
-                text: '인증에 실패했습니다.',
-                icon: 'error',
-                timer: 2000
+          text: '인증에 실패했습니다.',
+          icon: 'error',
+          timer: 2000
         });
       }
     },
@@ -132,24 +132,24 @@ export default {
       }
       if (!this.emailVerified) {
         Swal.fire({
-                text: '이메일 인증이 완료되어야 합니다.',
-                icon: 'error',
-                timer: 2000
+          text: '이메일 인증이 완료되어야 합니다.',
+          icon: 'error',
+          timer: 2000
         });
         return;
       }
       if (!this.userEmail || !this.s4_usermemo) {
         Swal.fire({
-                text: '이메일과 메시지를 입력해야 합니다.',
-                icon: 'error',
-                timer: 2000
+          text: '이메일과 메시지를 입력해야 합니다.',
+          icon: 'error',
+          timer: 2000
         });
         return;
       }
 
       const commentData = {
-              comment_content: this.s4_usermemo,
-              email: this.userEmail
+        comment_content: this.s4_usermemo,
+        email: this.userEmail
       };
 
       try {
@@ -163,9 +163,9 @@ export default {
 
       this.setRegistrationDateTime();
       this.cheerMessages.push({
-              message: this.s4_usermemo,
-              image: this.selectedImage || 's4_default_image.png',
-              registrationDateTime: this.registrationDateTime
+        message: this.s4_usermemo,
+        image: this.selectedImage || 's4_default_image.png',
+        registrationDateTime: this.registrationDateTime
       });
       localStorage.setItem('cheerMessages', JSON.stringify(this.cheerMessages));
       this.s4_usermemo = '';
@@ -191,13 +191,13 @@ export default {
     },
     showEmailMessage() {
       Swal.fire({
-              text: '인증이 완료되었습니다.',
-              icon: 'success',
-              timer: 2000
+        text: '인증이 완료되었습니다.',
+        icon: 'success',
+        timer: 2000
       }).then(() => {
-              setTimeout(() => {
+        setTimeout(() => {
           const emailMsg = document.querySelector('.s4emailMsg');
-      emailMsg.style.display = 'block';
+          emailMsg.style.display = 'block';
         }, 100);
       });
     },

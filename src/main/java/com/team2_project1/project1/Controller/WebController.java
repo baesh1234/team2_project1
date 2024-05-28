@@ -1,6 +1,7 @@
 package com.team2_project1.project1.Controller;
 
 
+import com.team2_project1.project1.Mapper.MemberMapper;
 import com.team2_project1.project1.domain.EmailRequest;
 import com.team2_project1.project1.service.EmailVerificationService;
 import com.team2_project1.project1.service.MemberService;
@@ -22,6 +23,13 @@ public class WebController {
     private EmailVerificationService emailVerificationService;
     @Autowired
     private MemberService memberService;
+    @Autowired
+    private MemberMapper memberMapper;
+
+    @GetMapping("/emailCount")
+    public int getEmailCount() {
+        return memberMapper.countAll();
+    }
 
     @PostMapping("/sendEmail")
     public void sendEmail(@RequestBody EmailRequest emailRequest){

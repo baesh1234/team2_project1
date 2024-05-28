@@ -15,7 +15,7 @@ import Section5 from "@/components/Section5.vue";
 import Section4 from "@/components/Section4.vue";
 import Section3 from "@/components/Section3.vue";
 
-import Sakura from '@/assets/js/sakura.js';
+
 
 
 
@@ -28,28 +28,14 @@ export default {
       navigation: true,
       scrollingSpeed: 1000,
       anchors: ['section1','section2', 'section3', 'section4', 'section5'],
-       afterLoad: (origin, destination, direction) => {
-               this.$nextTick(() => {
-                 this.initializeSakura(`#section${destination.index + 1}`);
-               });
-             },
+
     });
   },
 
-  methods: {
-      initializeSakura(selector) {
-            const element = document.querySelector(selector);
-            if (element) {
-              const sakura = new Sakura(selector);
-              sakura.start();
-            }
-          }
-    }
 
 };
 </script>
 
-<style src="@/assets/css/sakura.css"></style>
 <style>
 /*All*/
 .section { /*배경화면*/

@@ -48,6 +48,17 @@ public class WebController {
         }
     }
 
+
+
+    @Autowired
+    private MemberMapper memberMapper;
+
+    @GetMapping("/emailCount")
+    public int getEmailCount() {
+        return memberMapper.countAll();
+    }
+
+
     @PostMapping("/memberBook")
     public ResponseEntity<String> memberBook(@RequestBody EmailRequest emailRequest){
         //서비스의 결과 메시지를 가져옴
@@ -59,4 +70,5 @@ public class WebController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message);
         }
     }
+
 }

@@ -1,78 +1,125 @@
 <template>
-  <div class="section s5" pageNum="5">
+  <div class="section s5">
 
+    <div class="wrapper">
+      <div class="board">
 
-    <div class="section5_wrapper">
-      <div class="section5_arona"></div>
-      <div class="section5_plana"></div>
-
-      <div class="section5_header">
-        <div class="secstion5_top">
-          <h1>SNS 공유 이벤트</h1>
-          <h3>블루 아카이브 소식을 공유하고 선물도 받자!</h3>
+        <div class="social">
+          <div class="snsbutton">
+            <div class="sns1" @click='sns1()'></div>
+            <div class="sns2" @click='sns2()'></div>
+            <div class="sns3" @click='sns3()'></div>
+          </div>
+          <div class="community" @click='community()'></div>
         </div>
-      </div>
-
-
-      <div class="secstion5_explain">
-        <div class="secstion5_board">
-          <br><br><br>
-          100주년 맞이 SNS 공유 이벤트를 개최합니다!<br><br>
-          1.아래 3가지 SNS를 들어가서 100주년 이벤트를 공유해주세요!<br><br>
-          2.공유 게시글에 응원 메세지와 유저 id를 남겨주세요!<br><br>
-          3.이벤트 기간동안에 공유해주신 유저분들을 대상으로 푸짐한 <br>보상을 드립니다!
-        </div>
-
-
-      </div>
-
-      <div class="secstion5_social">
-        <div class="secstion5_imoticon1"><img src="../assets/images/물루.gif" alt="" width="80px" height="80px"></div>
-        <div class="secstion5_sns1" ><img src="../assets/images/instagram.png" alt="" width="60px" height="60px" no-repeat>instagram<br>&nbsp;</div>
-        <div class="secstion5_sns2" ><img src="../assets/images/xlogo.png" alt="" width="60px" height="60px" no-repeat>x<br>(前 트위터)</div>
-        <div class="secstion5_sns3" ><img src="../assets/images/blueachive.png" alt="" width="60px" height="60px" no-repeat><br>블루아카<br> 커뮤니티</div>
-        <div class="secstion5_imoticon2"><img src="../assets/images/아루.gif" alt="" width="80px" height="80px"></div>
-
-
-      </div>
-
-
-
-
-      <div class="secstion5_present">
-        <div class="secstion5_gift1">
-          <img src="../assets/images/starbuks.jpeg" alt="" width="170px" height="170px"><br>스타벅스 기프티콘<br>100명
-        </div>
-
-        <div class="secstion5_gift2">
-          <img src="../assets/images/figure.webp" alt="" width="170px" height="170px"><br>아로나 피규어<br>1명
-        </div>
-
-        <div class="secstion5_gift3">
-          <img src="../assets/images/giftcard.jpg" alt="" width="170px" height="170px"><br>구글기프트카드 10만원<br>10명
-        </div>
-      </div>
-
-      <div class="section5_back">
-
       </div>
 
     </div>
-
   </div>
 </template>
 
 <script>
-import axios from "axios";
+
 
 export default {
   name: 'Section5',
-  data() {
+
+  methods: {
+    sns1(event){
+      window.open('https://www.facebook.com/?locale=ko_KR');
+    },
+
+    sns2(event){
+      window.open('https://www.instagram.com/');
+    },
+
+    sns3(event){
+      window.open('https://x.com/?lang=ko');
+    },
+
+    community(event){
+      window.open('https://forum.nexon.com/bluearchive/main');
+    },
+
 
   }
 }
 
 </script>
+
+
 <style scoped>
+
+
+.wrapper{
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+
+
+}
+
+.board{
+  width: 1209px; height: 932px;
+  margin-top: 100px;
+  padding: 0px;
+  background-image: url(../assets/images/section5_main.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+
+}
+
+.social{
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 30%;
+
+}
+
+.snsbutton{
+  width: 300px; height: 90px;
+  display: table;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.snsbutton > div{
+  width: 80px; height: 80px;
+  padding: 0;
+  display: table-cell;
+  vertical-align: middle;
+}
+.sns1{
+  background-image: url(../assets/images/sns_btn1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.sns2{
+  background-image: url(../assets/images/sns_btn2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.sns3{
+  background-image: url(../assets/images/sns_btn3.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.community{
+  width: 364px; height: 86px;
+  background-image: url(../assets/images/btn1.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
 
 </style>

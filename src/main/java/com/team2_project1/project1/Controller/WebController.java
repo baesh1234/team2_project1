@@ -23,6 +23,13 @@ public class WebController {
     private EmailVerificationService emailVerificationService;
     @Autowired
     private MemberService memberService;
+    @Autowired
+    private MemberMapper memberMapper;
+
+    @GetMapping("/emailCount")
+    public int getEmailCount() {
+        return memberMapper.countAll();
+    }
 
     @PostMapping("/sendEmail")
     public void sendEmail(@RequestBody EmailRequest emailRequest){

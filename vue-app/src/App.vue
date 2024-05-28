@@ -15,6 +15,10 @@ import Section5 from "@/components/Section5.vue";
 import Section4 from "@/components/Section4.vue";
 import Section3 from "@/components/Section3.vue";
 
+import Sakura from '@/assets/js/sakura.js';
+
+
+
 export default {
   components: {Section1, Section2, Section3, Section4, Section5},
   mounted() {
@@ -24,13 +28,28 @@ export default {
       navigation: true,
       scrollingSpeed: 1000,
       anchors: ['section1','section2', 'section3', 'section4', 'section5'],
+       afterLoad: (origin, destination, direction) => {
+               this.$nextTick(() => {
+                 this.initializeSakura(`#section${destination.index + 1}`);
+               });
+             },
     });
-  }
+  },
 
-}
+  methods: {
+      initializeSakura(selector) {
+            const element = document.querySelector(selector);
+            if (element) {
+              const sakura = new Sakura(selector);
+              sakura.start();
+            }
+          }
+    }
+
+};
 </script>
 
-
+<style src="@/assets/css/sakura.css"></style>
 <style>
 /*All*/
 .section { /*배경화면*/
@@ -66,4 +85,5 @@ export default {
   background-image: url('https://item.kakaocdn.net/do/4155f71e3350f0ee40ffde6dcdcb2804f604e7b0e6900f9ac53a43965300eb9a'); /* 배경 이미지 설정 */
   background-size: cover; /* 배경 이미지를 아이템에 맞게 조정 */
 }
+
 </style>

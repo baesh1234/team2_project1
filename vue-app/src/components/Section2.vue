@@ -4,8 +4,8 @@
     <img src="../assets/images/section2Subbg.png" alt="초대장" class="subBg">
     <div  id="section2Form" class="row g-3">
       <form @submit.prevent="sendEmail">
-        <input type="email" v-model="to" placeholder="Enter your email" required />
-        <button>인증메일보내기</button>
+        <input type="email" class="form-control" v-model="to" placeholder="Enter your email" required />
+        <button class="btn btn-success">인증메일보내기</button>
       </form>
     </div>
     <p class="s2emailMsg" v-if="s2message">{{ s2message }}</p>
@@ -29,8 +29,9 @@
              name='agree'
              value='eventAgree'
              @click='s2uncheckSelectAll()||s2checkSelectAll()'/> 이벤트 등 프로모션 알림 수신 동의
+      <img @click='s2AlertBtn()' src="../assets/images/s2submitButton.png" alt="submitBtnImg" class="s2submitBtn">
     </div>
-    <a @click='s2AlertBtn()'><img src="../assets/images/s2submitButton.png" alt="submitBtnImg" class="s2submitBtn"></a>
+
   </div>
 </template>
 
@@ -179,8 +180,8 @@ export default {
   position: absolute;
   z-index: 2;
   width : 30rem;
-  bottom: 100px;
-  left: 650px;
+  top: 20rem;
+  left: 10rem;
 }
 .s2checkContainer {
   position: absolute;
@@ -194,5 +195,10 @@ export default {
   left: 480px;
   top: 366px;
   color : #007bff;
+}
+.form-control {
+  display: inline-block;
+  width: 20rem;
+  margin-right: 0.5rem;
 }
 </style>

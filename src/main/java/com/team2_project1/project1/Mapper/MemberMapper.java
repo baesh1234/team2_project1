@@ -12,17 +12,12 @@ public interface MemberMapper {
     @Select("SELECT COUNT(*) FROM member WHERE email = #{email}")
     int countByEmail(@Param("email") String email);
 
-
-    @Select("SELECT COUNT(*) FROM member WHERE book = 1")
-    int countAll();
-
-
     @Update("UPDATE `javadb2`.`member` SET `book`='1' WHERE email = #{email}")
-    boolean updateBook(@Param("email") String email);
+    int updateBook(@Param("email") String email);
 
     @Select("select book from member where email = #{email}")
     boolean findBook(@Param("email") String email);
 
+    @Select("SELECT COUNT(*) FROM member WHERE book = 1")
+    int countAll();
 }
-
-

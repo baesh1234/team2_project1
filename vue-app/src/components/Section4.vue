@@ -246,26 +246,27 @@ export default {
 
 .s4_board{
   position: absolute;
-  width: 80%; /* 이미지의 너비를 부모 요소의 100%로 설정합니다. */
-  height: auto; /* 이미지의 높이를 자동으로 조정하여 비율을 유지합니다. */
+  width: 100rem;
+  height: auto;
   top: 50px;
-  left: 100px;
-  object-fit: contain; /* 이미지가 요소에 맞게 확대되거나 축소되도록 설정합니다. */
+  left: 6rem;
+  -o-object-fit: contain;
+  object-fit: contain;
   border-radius: 3%;
 }
 
 .s4_int{
   position: absolute;
-  width: 490px;
+  width: 35rem;
   z-index: 2000;
   bottom: 132px;
-  right: 340px;
+  left: 68rem;
   height: 53px;
   font-size: 15px;
-  border-radius: 25px; /* 보다 둥근 형태를 위해 반지름 값을 조정합니다. */
-  border: 2px solid #4A89C3; /* 테두리 스타일 및 색상을 지정합니다. */
-  padding: 0 15px; /* 입력 필드 내용과 테두리 사이의 여백을 조정합니다. */
-  outline: none; /* 포커스된 상태에서의 외곽선을 제거합니다. */
+  border-radius: 25px;
+  border: 2px solid #4A89C3;
+  padding: 0 15px;
+  outline: none;
 }
 
 
@@ -288,8 +289,8 @@ export default {
   position: absolute;
   width: 55px;
   height: 53px;
-  bottom:132px;
-  right: 340px;
+  bottom: 132px;
+  left: 100rem;
   z-index: 2100;
   border-radius: 25px;
   cursor: pointer;
@@ -310,11 +311,11 @@ export default {
 .s4_cheerBtn{
   position: absolute;
   z-index: 1200;
-  width: 30%;
-  bottom: 115px;
-  left: 280px;
+  width: 37rem;
+  top: 44.5rem;
+  left: 18.5rem;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 효과를 위한 전환 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #s4_letterPopup{
@@ -354,7 +355,7 @@ export default {
   position: absolute;
   width: 80px;
   z-index: 1200px;
-  right: 880px;
+  left: 60rem;
   bottom:120px;
 }
 
@@ -364,7 +365,7 @@ export default {
   height: 20px; /* 높이 */
   background-color: black; /* 배경 색상 */
   clip-path: polygon(50% 100%, 0% 0%, 100% 0%); /* 역삼각형 모양 */
-  right: 840px; /* 오른쪽에서의 위치 조정 */
+  left: 65.5rem; /* 오른쪽에서의 위치 조정 */
   bottom: 145px; /* 아래에서의 위치 조정 */
   z-index: 1200; /* z-index로 레이어 순서 조정 */
   cursor: pointer;
@@ -430,12 +431,12 @@ export default {
 }
 
 .s4_comment-form{
-  position:absolute;
+  position: absolute;
   margin-top: 20px;
   width: 700px;
-  height:600px;
-  left:930px;
-  bottom:215px;
+  height: 600px;
+  left: 60rem;
+  top: 135px;
   overflow-y: auto; /* 수직 스크롤만 표시 */
 }
 

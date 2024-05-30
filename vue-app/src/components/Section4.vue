@@ -1,20 +1,20 @@
 <template>
-  <HelloWorld msg="Welcome to Your Vue.js App"/>  <!-- 제일위에 -->
+  <HelloWorld msg="Welcome to Your Vue.js App"/>
   <div class="section s4">
-    <div class="s4_container"> <!-- s4_container 추가 -->
+    <div class="s4_container">
       <img src="../assets/images/section4_arona_final.png" class="s4_board">
       <input type="text" class="s4_int2" placeholder="사전예약한 이메일을 입력해주세요" v-model="userEmail" maxlength="50" />
       <img src="../assets/images/s4_btn.png" class="s4_btn" @click="s4_btn">
       <img src="../assets/images/s4_emailBtn.png" class="s4_emailBtn" @click="s4_emailBtn">
       <p class="s4emailMsg">인증이 완료되었습니다.</p>
-      <img src="../assets/images/s4_arona_raund.png" class="s4_raund">
-      <div class="s4_triangleMenu" @click="toggleImageSelector"></div> <!-- 역삼각형 메뉴 추가 -->
+      <img :src="getImageSrc(selectedImage || 's4_arona_raund.png')" class="s4_raund">
+      <div class="s4_triangleMenu" @click="toggleImageSelector"></div>
       <input type="text" class="s4_int" v-model="s4_usermemo" placeholder="응원 메세지를 입력해주세요" />
       <div class="s4_comment-form">
         <div v-for="(message, index) in cheerMessages" :key="index" class="s4_message-item">
           <img class="s4_message-image" :src="getImageSrc(message.image)" :alt="message.image">
           <div class="s4_message-content">
-            <p class="s4_message-text">{{ message.message }}</p>
+            <p class="s4_message-text">{{ message.comment_content }}</p>
             <p class="s4_message-date">{{ message.registrationDateTime }}</p>
           </div>
         </div>
@@ -26,64 +26,67 @@
         </div>
       </div>
       <div id="s4_letterPopup">
-        <button id="s4_closeButton" @click="toggleLetterX()">X</button> <!-- 닫기 버튼 -->
+        <button id="s4_closeButton" @click="toggleLetterX()">X</button>
       </div>
-    </div> <!-- s4_container 닫기 -->
+    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
         import HelloWorld from './HelloWorld.vue';
+        import { Stomp } from "@stomp/stompjs";
+        import SockJS from "sockjs-client";
+
+
+
 
 export default {
   name: 'Section4',
           components: {
     HelloWorld
   },
-
-  mounted() {
-
-
-
-    // 로컬 스토리지에서 cheerMessages 불러오기
-    const storedMessages = localStorage.getItem('cheerMessages');
-    if (storedMessages) {
-      this.cheerMessages = JSON.parse(storedMessages);
-    } else {
-      // 서버에서 응원 댓글을 가져오는 메서드 호출
-      this.fetchCheerMessages();
-    }
-  },
   data() {
     return {
-            // section4
             userEmail: '',
             userMessage: '',
             emailVerified: false,
             s4_usermemo: '',
             showImageSelector: false,
-            selectedImage: null,
+            selectedImage: localStorage.getItem('selectedImage') || null,
             images: ["s4_arona_raund.png", "s4_mika.png", "s4_toki.png"],
-    cheerMessages: [],
-    selectedCheerMessage: null,
+            cheerMessages: [],
+            selectedCheerMessage: null,
             clearInputField: false,
-            registrationDateTime: ''
+            registrationDateTime: '',
+            stompClient: null // Stomp 클라이언트 객체 추가
     };
   },
+  mounted() {
+    this.initializeWebSocket();
+    this.fetchCheerMessages();
+    this.loadSelectedImage();
+    setInterval(this.fetchCheerMessages, 3000);
+  },
   methods: {
-    async fetchImages() {
-      try {
-        const response = await fetch('/images/list');
-        const images = await response.json();
-        this.images = images;
-      } catch (error) {
-        console.error('이미지를 불러오는데 실패했습니다.', error);
-      }
+    async initializeWebSocket() {
+      const socket = new SockJS('http://192.168.0.246:8080/gs-guide-websocket');
+      this.stompClient = Stomp.over(socket);
+      this.stompClient.connect({}, frame => {
+              console.log('Connected: ' + frame);
+      this.stompClient.subscribe('/topic/messages', message => {
+        const newMessage = JSON.parse(message.body);
+      this.cheerMessages.push(newMessage);
+      // 추가된 댓글을 화면에 바로 반영하기 위해 scrollToBottom 메서드를 호출합니다.
+      this.scrollToBottom();
+      localStorage.setItem('cheerMessages', JSON.stringify(this.cheerMessages));
+        });
+      });
     },
+
     async fetchCheerMessages() {
       try {
-        const response = await axios.get('http://localhost:8080/api/getCheerMessages');
+        const response = await axios.get('http://192.168.0.246:8080/api/Cheer');
         this.cheerMessages = response.data;
         localStorage.setItem('cheerMessages', JSON.stringify(this.cheerMessages));
       } catch (error) {
@@ -103,7 +106,7 @@ export default {
     },
     async s4_emailBtn() {
       try {
-        const response = await axios.post('http://localhost:8080/api/checkEmail', { email: this.userEmail });
+        const response = await axios.post('http://192.168.0.246:8080/api/checkEmail', { email: this.userEmail });
         if (response.data === "인증이 완료되었습니다.") {
           this.emailVerified = true;
           this.showEmailMessage();
@@ -147,39 +150,35 @@ export default {
         return;
       }
 
+      this.setRegistrationDateTime();
+
       const commentData = {
               comment_content: this.s4_usermemo,
-              email: this.userEmail
+              email: this.userEmail,
+              image: this.selectedImage,
+              registrationDateTime: this.registrationDateTime
       };
 
       try {
-        const response = await axios.post('http://localhost:8080/api/Cheer', commentData);
-        this.comments.push(response.data);
+        const response = await axios.post('http://192.168.0.246:8080/api/Cheer', commentData);
+        this.stompClient.send("/app/chat", {}, JSON.stringify(commentData));
         this.userEmail = '';
         this.s4_usermemo = '';
+        this.selectedImage = null; // Reset selected image after submission
       } catch (error) {
         console.error('댓글을 저장하는 동안 오류가 발생했습니다.', error);
       }
 
-      this.setRegistrationDateTime();
-      this.cheerMessages.push({
-              message: this.s4_usermemo,
-              image: this.selectedImage || 's4_default_image.png',
-              registrationDateTime: this.registrationDateTime
-      });
-      localStorage.setItem('cheerMessages', JSON.stringify(this.cheerMessages));
-      this.s4_usermemo = '';
-      this.clearInputField = true;
       this.showCheerMessages();
     },
     getImageSrc(imageName) {
       try {
         return require(`../assets/images/${imageName}`);
       } catch (e) {
+        //console.log(1111);
         return require(`../assets/images/s4_default_image.png`);
       }
     },
-
     showCheerMessages() {
       this.scrollToBottom();
     },
@@ -201,6 +200,8 @@ export default {
         }, 100);
       });
     },
+
+
     s4_cheerBtn() {
       const letter = document.querySelector('#s4_letterPopup');
       letter.style.display = 'block';
@@ -218,6 +219,7 @@ export default {
     },
     selectImage(selectedImage) {
       this.selectedImage = selectedImage;
+      localStorage.setItem('selectedImage', selectedImage); // 선택된 이미지를 localStorage에 저장
       this.adjustImageSelectorSize(selectedImage);
       this.showImageSelector = false;
       const imageElement = document.querySelector('.s4_raund');
@@ -238,9 +240,21 @@ export default {
         imageSelector.style.height = img.height + 'px';
       };
     },
+    loadSelectedImage() {
+      const storedImage = localStorage.getItem('selectedImage');
+      if (storedImage) {
+        this.selectedImage = storedImage;
+        const imageElement = document.querySelector('.s4_raund');
+        if (imageElement) {
+          imageElement.src = require(`../assets/images/${storedImage}`);
+        }
+      }
+    }
   }
 }
 </script>
+
+
 <style scoped>
 /*Section4*/
 

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-@CrossOrigin(origins = "http://192.168.0.246//:8081")
+@CrossOrigin(origins = "http://localhost//:8081")
 @RestController
 public class CheerController {
 

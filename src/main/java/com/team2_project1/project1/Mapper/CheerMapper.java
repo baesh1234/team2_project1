@@ -13,7 +13,7 @@ public interface CheerMapper {
     @Select("SELECT * FROM cheer_comments")
     List<Cheer> getAllCheer();
 
-    @Insert("INSERT INTO cheer_comments (comment_content, email, image) VALUES (#{commentContent}, #{email}, #{image})")
+    @Insert("INSERT INTO cheer_comments (comment_content, email, image, comment_datetime) VALUES (#{commentContent}, #{email}, #{image}, #{comment_datetime})")
     void insertCheer(Cheer cheer);
 
     @Select("SELECT * FROM cheer_comments WHERE id = #{id}")

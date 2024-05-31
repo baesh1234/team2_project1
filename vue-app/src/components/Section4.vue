@@ -15,7 +15,7 @@
           <img class="s4_message-image" :src="getImageSrc(message.image)" :alt="message.image">
           <div class="s4_message-content">
             <p class="s4_message-text">{{ message.comment_content }}</p>
-            <p class="s4_message-date">{{ message.registrationDateTime }}</p>
+            <p class="s4_message-date">{{ message.comment_datetime }}</p>
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@ export default {
       cheerMessages: [],
       selectedCheerMessage: null,
       clearInputField: false,
-      registrationDateTime: '',
+      comment_datetime: '',
       stompClient: null // Stomp 클라이언트 객체 추가
     };
   },
@@ -127,8 +127,8 @@ export default {
         });
       }
     },
-    setRegistrationDateTime() {
-      this.registrationDateTime = new Date().toLocaleString();
+    setcomment_datetime() {
+      this.comment_datetime = new Date().toISOString();
     },
     async submitMessage() {
       if (!this.selectedImage) {
@@ -151,17 +151,19 @@ export default {
         return;
       }
 
-      this.setRegistrationDateTime();
+      this.setcomment_datetime();
 
       const commentData = {
         comment_content: this.s4_usermemo,
         email: this.userEmail,
         image: this.selectedImage,
-        registrationDateTime: this.registrationDateTime
+        comment_datetime: this.comment_datetime
       };
 
       try {
-        const response = await axios.post('http://localhost:8080/api/Cheer', commentData);
+        const response = await axios.post('http://localhost:8080/api/Cheer', commentData)
+            .then(response => {console.log("Comment added", response.data);})
+            .catch(error =>{console.error("Error adding comment", error);});
         this.stompClient.send("/app/chat", {}, JSON.stringify(commentData));
         this.userEmail = '';
         this.s4_usermemo = '';

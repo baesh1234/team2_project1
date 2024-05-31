@@ -49,7 +49,7 @@ export default {
   methods: {
     /***Section2 function***/
     getData() {
-      axios.post('http://localhost:8080/findAll')
+      axios.post('http://192.168.0.196:8080/findAll')
           .then((response) => {
             console.log(response)
           })
@@ -113,7 +113,7 @@ export default {
     //이메일 인증 버튼
     async sendEmail(){
       try {
-        const response = await axios.post('http://localhost:8080/sendEmail', {to: this.to});
+        const response = await axios.post('http://192.168.0.196:8080/sendEmail', {to: this.to});
         this.s2message = '이메일이 성공적으로 전송 되었습니다.';
       }catch (error) {
         this.s2message = '이메일 전송이 실패 했습니다.';
@@ -126,7 +126,7 @@ export default {
 
       if (allAgreed) {
         try {
-          const response = await axios.post('http://localhost:8080/memberBook', { to: this.to });
+          const response = await axios.post('http://192.168.0.196:8080/memberBook', { to: this.to });
           Swal.fire({
             icon: 'success',
             title: response.data,
@@ -182,6 +182,7 @@ export default {
   width : 30rem;
   top: 20rem;
   left: 10rem;
+  cursor: pointer;
 }
 .s2checkContainer {
   position: absolute;

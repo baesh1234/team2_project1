@@ -34,8 +34,8 @@
 <script>
 import axios from "axios";
 import HelloWorld from './HelloWorld.vue';
-import { Stomp } from "@stomp/stompjs";
-import SockJS from "sockjs-client";
+//import { Stomp } from "@stomp/stompjs";
+//import SockJS from "sockjs-client";
 
 
 
@@ -70,7 +70,7 @@ export default {
   methods: {
 
     async initializeWebSocket() {
-      const socket = new SockJS('http://localhost:8080/gs-guide-websocket');
+      const socket = new SockJS('http://192.168.0.196/gs-guide-websocket');
       this.stompClient = Stomp.over(socket);
       this.stompClient.connect({}, frame => {
         console.log('Connected: ' + frame);
@@ -87,7 +87,7 @@ export default {
 
     async fetchCheerMessages() {
       try {
-        const response = await axios.get('http://localhost:8080/api/Cheer');
+        const response = await axios.get('http://192.168.0.196:8080/api/Cheer');
         this.cheerMessages = response.data;
         localStorage.setItem('cheerMessages', JSON.stringify(this.cheerMessages));
       } catch (error) {
@@ -107,7 +107,7 @@ export default {
     },
     async s4_emailBtn() {
       try {
-        const response = await axios.post('http://localhost:8080/api/checkEmail', { email: this.userEmail });
+        const response = await axios.post('http://192.168.0.196:8080/api/checkEmail', { email: this.userEmail });
         if (response.data === "인증이 완료되었습니다.") {
           this.emailVerified = true;
           this.showEmailMessage();
@@ -128,7 +128,9 @@ export default {
       }
     },
     setcomment_datetime() {
-      this.comment_datetime = new Date().toISOString();
+      const offset = 1000 * 60 * 60 * 9
+      const koreaNow = new Date((new Date()).getTime() + offset);
+      this.comment_datetime = koreaNow.toISOString();
     },
     async submitMessage() {
       if (!this.selectedImage) {
@@ -161,7 +163,7 @@ export default {
       };
 
       try {
-        const response = await axios.post('http://localhost:8080/api/Cheer', commentData)
+        const response = await axios.post('http://192.168.0.196:8080/api/Cheer', commentData)
             .then(response => {console.log("Comment added", response.data);})
             .catch(error =>{console.error("Error adding comment", error);});
         this.stompClient.send("/app/chat", {}, JSON.stringify(commentData));

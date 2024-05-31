@@ -85,5 +85,35 @@ export default {
   background-image: url('https://item.kakaocdn.net/do/4155f71e3350f0ee40ffde6dcdcb2804f604e7b0e6900f9ac53a43965300eb9a'); /* 배경 이미지 설정 */
   background-size: cover; /* 배경 이미지를 아이템에 맞게 조정 */
 }
-
+/*벚꽃*/
+.cherry_blossom {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+}
+.cherry_blossom .petal {
+    position: absolute;
+    background: linear-gradient(-45deg, #ffb6c1 0%, #ffc5d0 40%, #ffdfe6 80%);
+    border-radius: 10% 50% 40% 50%;
+    z-index: 1;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+    transform-style: preserve-3d;
+    transition: transform 1000ms linear;
+}
+@keyframes fall {
+    0% {
+            top: 0;
+    opacity: 1;
+    }
+    80% {
+            opacity: 1;
+    }
+    100% {
+            top: 100%;
+    opacity: 0.2;
+    }
+}
 </style>

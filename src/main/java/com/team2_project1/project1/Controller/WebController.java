@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 
 //vue와 Spring을 연결하는 어노테이션 CrossOrigin
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://192.168.0.196:8081")
 //restController로 해야지 vue와 연결 된다???
 @RestController
 public class WebController {

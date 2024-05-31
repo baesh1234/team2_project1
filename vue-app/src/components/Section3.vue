@@ -99,7 +99,7 @@
     },
     methods: {
       fetchEmailCount() {
-        fetch('http://localhost:8080/emailCount')
+        fetch('http://192.168.0.196:8080/emailCount')
           .then(response => response.json())
           .then(data => {
             this.emailCount = data;
